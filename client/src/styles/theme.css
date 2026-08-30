@@ -1,0 +1,144 @@
+/*
+  Lobito Farms theme — overrides Bootstrap's runtime CSS custom properties instead of
+  recompiling Sass, so we can re-theme without a Sass build step. See:
+  https://getbootstrap.com/docs/5.3/customize/css-variables/
+*/
+
+:root {
+  /* Brand tokens */
+  --lf-primary: #2f5233;
+  --lf-primary-dark: #1f3a22;
+  --lf-primary-light: #4a7350;
+  --lf-accent: #c98a3a;
+  --lf-accent-dark: #a8701f;
+  --lf-cream: #faf6ee;
+  --lf-cream-dark: #f0e8d8;
+  --lf-ink: #2a241c;
+  --lf-muted: #6b6255;
+
+  /* Bootstrap palette overrides */
+  --bs-primary: var(--lf-primary);
+  --bs-primary-rgb: 47, 82, 51;
+  --bs-secondary: var(--lf-accent);
+  --bs-secondary-rgb: 201, 138, 58;
+  --bs-body-color: var(--lf-ink);
+  --bs-body-bg: #ffffff;
+  --bs-link-color: var(--lf-primary);
+  --bs-link-hover-color: var(--lf-primary-dark);
+  --bs-border-radius: 0.6rem;
+  --bs-border-radius-sm: 0.4rem;
+  --bs-border-radius-lg: 1rem;
+  --bs-font-sans-serif: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+  background-color: var(--lf-cream);
+}
+
+/* Buttons */
+.btn {
+  font-weight: 600;
+  border-radius: var(--bs-border-radius);
+  padding-inline: 1.25rem;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--lf-primary);
+  --bs-btn-border-color: var(--lf-primary);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-bg: var(--lf-primary-dark);
+  --bs-btn-hover-border-color: var(--lf-primary-dark);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: var(--lf-primary-dark);
+  --bs-btn-active-border-color: var(--lf-primary-dark);
+  --bs-btn-active-color: #fff;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--lf-primary);
+  --bs-btn-border-color: var(--lf-primary);
+  --bs-btn-hover-bg: var(--lf-primary);
+  --bs-btn-hover-border-color: var(--lf-primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: var(--lf-primary);
+  --bs-btn-active-border-color: var(--lf-primary);
+}
+
+.btn-accent {
+  --bs-btn-bg: var(--lf-accent);
+  --bs-btn-border-color: var(--lf-accent);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-bg: var(--lf-accent-dark);
+  --bs-btn-hover-border-color: var(--lf-accent-dark);
+  --bs-btn-hover-color: #fff;
+}
+
+.btn-outline-accent {
+  --bs-btn-color: var(--lf-accent-dark);
+  --bs-btn-border-color: var(--lf-accent);
+  --bs-btn-hover-bg: var(--lf-accent);
+  --bs-btn-hover-border-color: var(--lf-accent);
+  --bs-btn-hover-color: #fff;
+}
+
+.btn-light {
+  --bs-btn-color: var(--lf-ink);
+}
+
+/* Text & background utilities */
+.text-accent { color: var(--lf-accent) !important; }
+.bg-accent { background-color: var(--lf-accent) !important; }
+.bg-cream { background-color: var(--lf-cream) !important; }
+.bg-cream-dark { background-color: var(--lf-cream-dark) !important; }
+.bg-primary-dark { background-color: var(--lf-primary-dark) !important; }
+.text-muted-warm { color: var(--lf-muted) !important; }
+
+/* Navbar */
+.navbar-brand {
+  font-weight: 800;
+  color: var(--lf-primary) !important;
+  letter-spacing: -0.01em;
+}
+
+.navbar .nav-link {
+  font-weight: 600;
+  color: var(--lf-ink) !important;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+  color: var(--lf-primary) !important;
+}
+
+/* Cards */
+.card {
+  border: 1px solid var(--lf-cream-dark);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.75rem 1.5rem rgba(31, 58, 34, 0.12);
+}
+
+/* Badges for CMS status pills */
+.badge-draft { background-color: #9aa0a6; }
+.badge-in_review { background-color: #c98a3a; }
+.badge-published { background-color: #2f5233; }
+.badge-archived { background-color: #6b6255; }
+
+/* Forms */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--lf-primary-light);
+  box-shadow: 0 0 0 0.2rem rgba(47, 82, 51, 0.15);
+}
+
+/* Footer */
+.site-footer a {
+  color: #d9e5da;
+}
+
+.site-footer a:hover {
+  color: #fff;
+}
