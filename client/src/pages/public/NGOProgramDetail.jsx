@@ -27,7 +27,7 @@ export default function NGOProgramDetail() {
         <nav className="small mb-3">
           <Link to="/ngo" className="text-muted-warm">← Back to Foundation</Link>
         </nav>
-        <div className="row g-5">
+        <div className="row g-4">
           <div className="col-12 col-lg-6">
             {program.image && <img src={program.image} alt={program.title} className="rounded-4 w-100" style={{ maxHeight: 420, objectFit: 'cover' }} />}
           </div>

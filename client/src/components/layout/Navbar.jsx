@@ -20,7 +20,7 @@ export default function Navbar() {
       <div className="container">
         <NavLink className="navbar-brand fs-4 d-flex align-items-center gap-2" to="/">
           {settings.logo ? (
-            <img src={settings.logo} alt={settings.siteName || 'Lobito Farms'} style={{ height: 40 }} />
+            <img src={settings.logo} alt={settings.siteName || 'Lobito Farms'} style={{ height: 56 }} />
           ) : (
             settings.siteName || 'Lobito Farms'
           )}

@@ -134,6 +134,66 @@ body {
   box-shadow: 0 0 0 0.2rem rgba(47, 82, 51, 0.15);
 }
 
+/* Testimonial carousel controls: Bootstrap's defaults are a 15%-wide invisible click
+   zone with a bare icon, which overlaps quote text on narrow screens. Shrink them to a
+   small fixed circular badge pinned to the edges instead, clear of the padded text. */
+.testimonial-carousel .carousel-control-prev,
+.testimonial-carousel .carousel-control-next {
+  top: 50%;
+  bottom: auto;
+  width: 2.25rem;
+  height: 2.25rem;
+  transform: translateY(-50%);
+  background-color: var(--lf-primary);
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.testimonial-carousel .carousel-control-prev {
+  left: 0;
+}
+
+.testimonial-carousel .carousel-control-next {
+  right: 0;
+}
+
+.testimonial-carousel .carousel-control-prev-icon,
+.testimonial-carousel .carousel-control-next-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Admin layout: sidebar slides over content as a drawer on mobile, and sits inline
+   (sticky) alongside content at lg+ — matches the AdminLayout "Menu" toggle. */
+.admin-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 1040;
+  transform: translateX(-100%);
+  transition: transform 0.2s ease;
+}
+
+.admin-sidebar.is-open {
+  transform: translateX(0);
+}
+
+.admin-sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1035;
+}
+
+@media (min-width: 992px) {
+  .admin-sidebar {
+    position: sticky;
+    transform: none;
+  }
+}
+
 /* Footer */
 .site-footer a {
   color: #d9e5da;

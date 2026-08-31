@@ -28,7 +28,7 @@ export default function ProductDetail() {
         <nav className="small mb-3">
           <Link to="/products" className="text-muted-warm">← Back to Products</Link>
         </nav>
-        <div className="row g-5">
+        <div className="row g-4">
           <div className="col-12 col-lg-6">
             {product.images?.[0] && (
               <img src={product.images[0]} alt={product.name} className="rounded-4 w-100 mb-3" style={{ maxHeight: 420, objectFit: 'cover' }} />

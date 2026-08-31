@@ -10,7 +10,7 @@ export default function Contact() {
       <PageHeader eyebrow="Get in Touch" title="Contact Us" subtitle="Questions about sourcing, partnerships, or our foundation programs — reach out." />
       <section className="section">
         <div className="container">
-          <div className="row g-5">
+          <div className="row g-4">
             <div className="col-12 col-lg-5">
               <h2 className="h5 mb-3">Contact Details</h2>
               <ul className="list-unstyled d-flex flex-column gap-2 text-muted-warm">

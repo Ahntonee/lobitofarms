@@ -30,7 +30,7 @@ export default function CropDetail() {
         <nav className="small mb-3">
           <Link to="/crops" className="text-muted-warm">← Back to Crops</Link>
         </nav>
-        <div className="row g-5 align-items-start">
+        <div className="row g-4 align-items-start">
           <div className="col-12 col-lg-6">
             {crop.images?.[0] && (
               <img src={crop.images[0]} alt={crop.name} className="rounded-4 w-100 mb-3" style={{ maxHeight: 420, objectFit: 'cover' }} />

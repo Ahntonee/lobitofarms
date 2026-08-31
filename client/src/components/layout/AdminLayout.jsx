@@ -27,13 +27,15 @@ export default function AdminLayout() {
 
   return (
     <div className="d-flex min-vh-100 bg-cream">
+      {open && <div className="admin-sidebar-backdrop d-lg-none" onClick={() => setOpen(false)} />}
+
       <aside
-        className={`bg-primary-dark text-white p-3 ${open ? 'd-block' : 'd-none'} d-lg-block`}
-        style={{ width: 240, position: 'sticky', top: 0, height: '100vh', overflowY: 'auto' }}
+        className={`admin-sidebar bg-primary-dark text-white p-3 ${open ? 'is-open' : ''}`}
+        style={{ width: 240 }}
       >
         <Link to="/" className="d-flex align-items-center text-white text-decoration-none fw-bold fs-5 mb-4">
           {settings.logo ? (
-            <img src={settings.logo} alt={settings.siteName || 'Lobito Farms'} style={{ height: 32 }} />
+            <img src={settings.logo} alt={settings.siteName || 'Lobito Farms'} style={{ height: 44 }} />
           ) : (
             settings.siteName || 'Lobito Farms'
           )}
@@ -54,15 +56,15 @@ export default function AdminLayout() {
       </aside>
 
       <div className="flex-grow-1 d-flex flex-column" style={{ minWidth: 0 }}>
-        <header className="bg-white border-bottom d-flex align-items-center justify-content-between px-3 py-2">
-          <button className="btn btn-outline-secondary btn-sm d-lg-none" onClick={() => setOpen((o) => !o)}>
+        <header className="bg-white border-bottom d-flex align-items-center gap-2 px-3 py-2">
+          <button className="btn btn-outline-secondary btn-sm d-lg-none flex-shrink-0" onClick={() => setOpen((o) => !o)}>
             Menu
           </button>
-          <div className="ms-auto d-flex align-items-center gap-3">
-            <span className="small text-muted-warm">
+          <div className="ms-auto d-flex align-items-center gap-2 gap-sm-3" style={{ minWidth: 0 }}>
+            <span className="small text-muted-warm text-truncate d-none d-sm-block" style={{ maxWidth: 180 }}>
               {user?.name} <span className="text-uppercase">({user?.role.replace('_', ' ')})</span>
             </span>
-            <button className="btn btn-sm btn-outline-secondary" onClick={logout}>Log Out</button>
+            <button className="btn btn-sm btn-outline-secondary flex-shrink-0" onClick={logout}>Log Out</button>
           </div>
         </header>
         <main className="p-3 p-md-4 flex-grow-1">

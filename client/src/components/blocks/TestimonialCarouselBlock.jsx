@@ -15,11 +15,11 @@ export default function TestimonialCarouselBlock({ config = {} }) {
     <section className="section bg-cream-dark">
       <div className="container">
         {config.heading && <h2 className="h3 fw-bold mb-4 text-center">{config.heading}</h2>}
-        <div id={carouselId} className="carousel slide" data-bs-ride="carousel">
+        <div id={carouselId} className="carousel slide testimonial-carousel" data-bs-ride="carousel">
           <div className="carousel-inner">
             {testimonials.map((t, i) => (
               <div className={`carousel-item ${i === 0 ? 'active' : ''}`} key={t._id}>
-                <div className="mx-auto text-center" style={{ maxWidth: 700 }}>
+                <div className="mx-auto text-center px-5" style={{ maxWidth: 700 }}>
                   {t.image && (
                     <img src={t.image} alt={t.name} className="rounded-circle mb-3" width={80} height={80} style={{ objectFit: 'cover' }} />
                   )}
@@ -33,11 +33,11 @@ export default function TestimonialCarouselBlock({ config = {} }) {
           {testimonials.length > 1 && (
             <>
               <button className="carousel-control-prev" type="button" data-bs-target={`#${carouselId}`} data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" style={{ filter: 'invert(1)' }} aria-hidden="true" />
+                <span className="carousel-control-prev-icon" aria-hidden="true" />
                 <span className="visually-hidden">Previous</span>
               </button>
               <button className="carousel-control-next" type="button" data-bs-target={`#${carouselId}`} data-bs-slide="next">
-                <span className="carousel-control-next-icon" style={{ filter: 'invert(1)' }} aria-hidden="true" />
+                <span className="carousel-control-next-icon" aria-hidden="true" />
                 <span className="visually-hidden">Next</span>
               </button>
             </>
