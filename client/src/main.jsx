@@ -11,7 +11,7 @@ import { SiteSettingsProvider } from './context/SiteSettingsContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
       <AuthProvider>
         <SiteSettingsProvider>
           <App />

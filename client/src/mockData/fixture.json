@@ -1,0 +1,687 @@
+{
+  "crops": [
+    {
+      "_id": "6a8ce52c9aeae0951447a8a9",
+      "name": "Cocoa",
+      "slug": "cocoa",
+      "category": "Cash Crop",
+      "description": "Our cocoa is grown across smallholder farms and estate plots, hand-harvested at peak ripeness and fermented under strict quality control to develop the rich flavor profile international buyers rely on.",
+      "images": [
+        "https://images.pexels.com/photos/37062650/pexels-photo-37062650.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+        "https://images.pexels.com/photos/35585310/pexels-photo-35585310.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      ],
+      "season": "Main crop: Oct - Mar, Mid crop: May - Aug",
+      "exportGrade": "Grade I, Fair Trade certified",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Cocoa | Lobito Farms",
+        "metaDescription": "Our cocoa is grown across smallholder farms and estate plots, hand-harvested at peak ripeness and fermented under strict quality control to develop the ric"
+      },
+      "createdBy": "6a8ce52b9aeae0951447a8a3",
+      "updatedBy": "6a8ce52b9aeae0951447a8a3",
+      "createdAt": "2026-08-25T00:43:24.494Z",
+      "updatedAt": "2026-08-25T00:43:24.494Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ce52c9aeae0951447a8aa",
+      "name": "Plantain",
+      "slug": "plantain",
+      "category": "Staple Crop",
+      "description": "Grown in fertile lowland plots with sustainable intercropping practices, our plantains are harvested green for export and ripened under controlled conditions for local distribution.",
+      "images": [
+        "https://images.pexels.com/photos/15408866/pexels-photo-15408866.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+        "https://images.pexels.com/photos/37287980/pexels-photo-37287980.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      ],
+      "season": "Year-round, peak Jun - Sep",
+      "exportGrade": "Export Grade A",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Plantain | Lobito Farms",
+        "metaDescription": "Grown in fertile lowland plots with sustainable intercropping practices, our plantains are harvested green for export and ripened under controlled conditio"
+      },
+      "createdBy": "6a8ce52b9aeae0951447a8a3",
+      "updatedBy": "6a8ce52b9aeae0951447a8a3",
+      "createdAt": "2026-08-25T00:43:24.494Z",
+      "updatedAt": "2026-08-25T00:43:24.494Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ce52c9aeae0951447a8ab",
+      "name": "Cashew",
+      "slug": "cashew",
+      "category": "Cash Crop",
+      "description": "Raw cashew nuts sourced from drought-resistant orchards, sun-dried and sorted by hand before export. We work directly with outgrower communities to guarantee traceability from tree to shipment.",
+      "images": [
+        "https://images.pexels.com/photos/10615955/pexels-photo-10615955.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+        "https://images.pexels.com/photos/30878379/pexels-photo-30878379.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      ],
+      "season": "Feb - May",
+      "exportGrade": "W240 / W320 kernel grades",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Cashew | Lobito Farms",
+        "metaDescription": "Raw cashew nuts sourced from drought-resistant orchards, sun-dried and sorted by hand before export. We work directly with outgrower communities to guarant"
+      },
+      "createdBy": "6a8ce52b9aeae0951447a8a3",
+      "updatedBy": "6a8ce52b9aeae0951447a8a3",
+      "createdAt": "2026-08-25T00:43:24.494Z",
+      "updatedAt": "2026-08-25T00:43:24.494Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ce52c9aeae0951447a8ac",
+      "name": "Coffee",
+      "slug": "coffee",
+      "category": "Cash Crop",
+      "description": "Shade-grown Robusta and Arabica beans cultivated on the highland edges of our cooperative farms, wet-processed for a clean, bright cup profile.",
+      "images": [
+        "https://images.pexels.com/photos/30711594/pexels-photo-30711594.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+        "https://images.pexels.com/photos/34792532/pexels-photo-34792532.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      ],
+      "season": "Nov - Feb",
+      "exportGrade": "AA / AB grades",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Coffee | Lobito Farms",
+        "metaDescription": "Shade-grown Robusta and Arabica beans cultivated on the highland edges of our cooperative farms, wet-processed for a clean, bright cup profile."
+      },
+      "createdBy": "6a8ce52b9aeae0951447a8a3",
+      "updatedBy": "6a8ce52b9aeae0951447a8a3",
+      "createdAt": "2026-08-25T00:43:24.494Z",
+      "updatedAt": "2026-08-25T00:43:24.494Z",
+      "__v": 0
+    }
+  ],
+  "products": [
+    {
+      "_id": "6a8ce52c9aeae0951447a8b1",
+      "name": "Premium Fermented Cocoa Beans",
+      "slug": "premium-fermented-cocoa-beans",
+      "crop": "6a8ce52c9aeae0951447a8a9",
+      "description": "Premium Fermented Cocoa Beans sourced directly from Lobito Farms' network of cooperative growers, quality-checked and export-ready.",
+      "images": [
+        "https://images.pexels.com/photos/31283914/pexels-photo-31283914.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      ],
+      "specs": "Moisture content, defect count, and grading available on request.",
+      "moq": "1 container (24 MT)",
+      "packaging": "60kg jute bags",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Premium Fermented Cocoa Beans | Lobito Farms"
+      },
+      "createdBy": "6a8ce52c9aeae0951447a8a5",
+      "updatedBy": "6a8ce52c9aeae0951447a8a5",
+      "createdAt": "2026-08-25T00:43:24.559Z",
+      "updatedAt": "2026-08-25T00:43:24.559Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ce52c9aeae0951447a8b3",
+      "name": "Cocoa Butter (Bulk)",
+      "slug": "cocoa-butter-bulk",
+      "crop": "6a8ce52c9aeae0951447a8a9",
+      "description": "Cocoa Butter (Bulk) sourced directly from Lobito Farms' network of cooperative growers, quality-checked and export-ready.",
+      "images": [
+        "https://images.pexels.com/photos/32597040/pexels-photo-32597040.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      ],
+      "specs": "Moisture content, defect count, and grading available on request.",
+      "moq": "5 MT",
+      "packaging": "25kg cartons",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Cocoa Butter (Bulk) | Lobito Farms"
+      },
+      "createdBy": "6a8ce52c9aeae0951447a8a5",
+      "updatedBy": "6a8ce52c9aeae0951447a8a5",
+      "createdAt": "2026-08-25T00:43:24.610Z",
+      "updatedAt": "2026-08-25T00:43:24.610Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ce52c9aeae0951447a8b5",
+      "name": "Green Export Plantain",
+      "slug": "green-export-plantain",
+      "crop": "6a8ce52c9aeae0951447a8aa",
+      "description": "Green Export Plantain sourced directly from Lobito Farms' network of cooperative growers, quality-checked and export-ready.",
+      "images": [
+        "https://images.pexels.com/photos/31537314/pexels-photo-31537314.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      ],
+      "specs": "Moisture content, defect count, and grading available on request.",
+      "moq": "18 MT pallet load",
+      "packaging": "Ventilated cartons",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Green Export Plantain | Lobito Farms"
+      },
+      "createdBy": "6a8ce52c9aeae0951447a8a5",
+      "updatedBy": "6a8ce52c9aeae0951447a8a5",
+      "createdAt": "2026-08-25T00:43:24.623Z",
+      "updatedAt": "2026-08-25T00:43:24.623Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ce52c9aeae0951447a8b7",
+      "name": "Raw Cashew Nuts (RCN)",
+      "slug": "raw-cashew-nuts-rcn",
+      "crop": "6a8ce52c9aeae0951447a8ab",
+      "description": "Raw Cashew Nuts (RCN) sourced directly from Lobito Farms' network of cooperative growers, quality-checked and export-ready.",
+      "images": [
+        "https://images.pexels.com/photos/34449058/pexels-photo-34449058.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      ],
+      "specs": "Moisture content, defect count, and grading available on request.",
+      "moq": "1 container (20 MT)",
+      "packaging": "80kg polypropylene bags",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Raw Cashew Nuts (RCN) | Lobito Farms"
+      },
+      "createdBy": "6a8ce52c9aeae0951447a8a5",
+      "updatedBy": "6a8ce52c9aeae0951447a8a5",
+      "createdAt": "2026-08-25T00:43:24.632Z",
+      "updatedAt": "2026-08-25T00:43:24.632Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ce52c9aeae0951447a8b9",
+      "name": "Cashew Kernels W320",
+      "slug": "cashew-kernels-w320",
+      "crop": "6a8ce52c9aeae0951447a8ab",
+      "description": "Cashew Kernels W320 sourced directly from Lobito Farms' network of cooperative growers, quality-checked and export-ready.",
+      "images": [
+        "https://images.pexels.com/photos/36631827/pexels-photo-36631827.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      ],
+      "specs": "Moisture content, defect count, and grading available on request.",
+      "moq": "2 MT",
+      "packaging": "Vacuum-sealed 22.68kg tins",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Cashew Kernels W320 | Lobito Farms"
+      },
+      "createdBy": "6a8ce52c9aeae0951447a8a5",
+      "updatedBy": "6a8ce52c9aeae0951447a8a5",
+      "createdAt": "2026-08-25T00:43:24.638Z",
+      "updatedAt": "2026-08-25T00:43:24.638Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ce52c9aeae0951447a8bb",
+      "name": "Green Coffee Beans AA",
+      "slug": "green-coffee-beans-aa",
+      "crop": "6a8ce52c9aeae0951447a8ac",
+      "description": "Green Coffee Beans AA sourced directly from Lobito Farms' network of cooperative growers, quality-checked and export-ready.",
+      "images": [
+        "https://images.pexels.com/photos/30711593/pexels-photo-30711593.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      ],
+      "specs": "Moisture content, defect count, and grading available on request.",
+      "moq": "1 MT",
+      "packaging": "60kg GrainPro bags",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Green Coffee Beans AA | Lobito Farms"
+      },
+      "createdBy": "6a8ce52c9aeae0951447a8a5",
+      "updatedBy": "6a8ce52c9aeae0951447a8a5",
+      "createdAt": "2026-08-25T00:43:24.644Z",
+      "updatedAt": "2026-08-25T00:43:24.644Z",
+      "__v": 0
+    }
+  ],
+  "ngoPrograms": [
+    {
+      "_id": "6a8ce52c9aeae0951447a8bf",
+      "title": "Women's Agribusiness Cooperative",
+      "slug": "womens-agribusiness-cooperative",
+      "description": "Microgrants and business training for women-led farming cooperatives to process and sell value-added products like cocoa butter and dried plantain chips.",
+      "image": "https://images.pexels.com/photos/31135663/pexels-photo-31135663.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      "category": "Economic Empowerment",
+      "beneficiaries": 460,
+      "location": "Multiple districts",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Women's Agribusiness Cooperative | Lobito Farms Foundation"
+      },
+      "createdBy": "6a8ce52b9aeae0951447a8a3",
+      "updatedBy": "6a8ce52b9aeae0951447a8a3",
+      "createdAt": "2026-08-25T00:43:24.666Z",
+      "updatedAt": "2026-08-25T00:43:24.666Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ce52c9aeae0951447a8be",
+      "title": "Clean Water for Farming Communities",
+      "slug": "clean-water-for-farming-communities",
+      "description": "Borehole and rainwater harvesting infrastructure for villages surrounding our farm clusters, reducing waterborne illness and freeing up time otherwise spent walking for water.",
+      "image": "https://images.pexels.com/photos/32154739/pexels-photo-32154739.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      "category": "Infrastructure",
+      "beneficiaries": 3400,
+      "location": "Rural cooperative villages",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Clean Water for Farming Communities | Lobito Farms Foundation"
+      },
+      "createdBy": "6a8ce52b9aeae0951447a8a3",
+      "updatedBy": "6a8ce52b9aeae0951447a8a3",
+      "createdAt": "2026-08-25T00:43:24.666Z",
+      "updatedAt": "2026-08-25T00:43:24.666Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ce52c9aeae0951447a8c0",
+      "title": "School Feeding & Scholarship Fund",
+      "slug": "school-feeding-scholarship-fund",
+      "description": "Daily meals and scholarship support for children in farming families, funded in part by proceeds from Lobito Farms' export operations.",
+      "image": "https://images.pexels.com/photos/28593044/pexels-photo-28593044.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      "category": "Education",
+      "beneficiaries": 890,
+      "location": "Lobito District Schools",
+      "status": "published",
+      "seo": {
+        "metaTitle": "School Feeding & Scholarship Fund | Lobito Farms Foundation"
+      },
+      "createdBy": "6a8ce52b9aeae0951447a8a3",
+      "updatedBy": "6a8ce52b9aeae0951447a8a3",
+      "createdAt": "2026-08-25T00:43:24.667Z",
+      "updatedAt": "2026-08-25T00:43:24.667Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ce52c9aeae0951447a8bd",
+      "title": "Farmer Field Schools",
+      "slug": "farmer-field-schools",
+      "description": "Hands-on agronomy training helping smallholder farmers improve yield, adopt climate-smart practices, and access fair markets.",
+      "image": "https://images.pexels.com/photos/34411658/pexels-photo-34411658.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      "category": "Training",
+      "beneficiaries": 1200,
+      "location": "Lobito River Valley",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Farmer Field Schools | Lobito Farms Foundation"
+      },
+      "createdBy": "6a8ce52b9aeae0951447a8a3",
+      "updatedBy": "6a8ce52b9aeae0951447a8a3",
+      "createdAt": "2026-08-25T00:43:24.666Z",
+      "updatedAt": "2026-08-25T00:43:24.666Z",
+      "__v": 0
+    }
+  ],
+  "testimonials": [
+    {
+      "_id": "6a8ce52c9aeae0951447a8c5",
+      "name": "Grace Amoah",
+      "role": "Cocoa Cooperative Member",
+      "quote": "The Farmer Field School changed how I farm. My cocoa yield went up and I finally understand fermentation quality standards our buyers ask for.",
+      "image": "https://images.pexels.com/photos/34705724/pexels-photo-34705724.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop",
+      "featured": true,
+      "createdAt": "2026-08-25T00:43:24.694Z",
+      "updatedAt": "2026-08-25T00:43:24.694Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ce52c9aeae0951447a8c6",
+      "name": "Samuel Boateng",
+      "role": "Export Partner, Rotterdam",
+      "quote": "Lobito Farms is one of the few suppliers whose documentation and traceability match what they promise. Consistent quality, shipment after shipment.",
+      "image": "https://images.pexels.com/photos/33993456/pexels-photo-33993456.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop",
+      "featured": true,
+      "createdAt": "2026-08-25T00:43:24.695Z",
+      "updatedAt": "2026-08-25T00:43:24.695Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ce52c9aeae0951447a8c7",
+      "name": "Fatima Diallo",
+      "role": "Women's Cooperative Lead",
+      "quote": "With the microgrant, our cooperative bought a drying machine. We now process and sell cashew kernels ourselves instead of raw nuts at a lower price.",
+      "image": "https://images.pexels.com/photos/15897037/pexels-photo-15897037.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop",
+      "featured": false,
+      "createdAt": "2026-08-25T00:43:24.695Z",
+      "updatedAt": "2026-08-25T00:43:24.695Z",
+      "__v": 0
+    }
+  ],
+  "blog": [
+    {
+      "_id": "6a8ce52c9aeae0951447a8cb",
+      "title": "How We Ferment Cocoa for Export-Grade Flavor",
+      "slug": "how-we-ferment-cocoa-for-export-grade-flavor",
+      "body": "<p>Fermentation is where cocoa flavor is really made. Our teams turn the beans daily across a six-day fermentation window, monitoring temperature and pH to hit the profile our export partners expect.</p>",
+      "excerpt": "A look inside our fermentation process and why timing determines flavor quality.",
+      "coverImage": "https://images.pexels.com/photos/31283913/pexels-photo-31283913.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      "author": "6a8ce52c9aeae0951447a8a5",
+      "tags": [
+        "cocoa",
+        "export",
+        "quality"
+      ],
+      "category": "Farming Practices",
+      "status": "published",
+      "publishedAt": "2026-08-13T00:43:24.703Z",
+      "seo": {
+        "metaTitle": "How We Ferment Cocoa for Export-Grade Flavor"
+      },
+      "createdBy": "6a8ce52c9aeae0951447a8a5",
+      "updatedBy": "6a8ce52c9aeae0951447a8a5",
+      "createdAt": "2026-08-25T00:43:24.717Z",
+      "updatedAt": "2026-08-25T00:43:24.717Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a8ce52c9aeae0951447a8cc",
+      "title": "Inside the Women's Agribusiness Cooperative",
+      "slug": "inside-the-womens-agribusiness-cooperative",
+      "body": "<p>Three years ago, this cooperative sold raw cashew nuts at farm-gate prices. Today, with training and a shared drying facility, they process and sell kernels directly.</p>",
+      "excerpt": "Meet the cooperative turning raw cashew into higher-value kernels.",
+      "coverImage": "https://images.pexels.com/photos/30483244/pexels-photo-30483244.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      "author": "6a8ce52b9aeae0951447a8a3",
+      "tags": [
+        "ngo",
+        "cashew",
+        "women"
+      ],
+      "category": "Community Impact",
+      "status": "published",
+      "publishedAt": "2026-08-20T00:43:24.703Z",
+      "seo": {
+        "metaTitle": "Inside the Women's Agribusiness Cooperative"
+      },
+      "createdBy": "6a8ce52b9aeae0951447a8a3",
+      "updatedBy": "6a8ce52b9aeae0951447a8a3",
+      "createdAt": "2026-08-25T00:43:24.717Z",
+      "updatedAt": "2026-08-25T00:43:24.717Z",
+      "__v": 0
+    }
+  ],
+  "pages": {
+    "home": {
+      "_id": "6a8ce52c9aeae0951447a8d3",
+      "slug": "home",
+      "title": "Home",
+      "blocks": [
+        {
+          "type": "hero",
+          "order": 0,
+          "config": {
+            "heading": "Growing Cocoa, Plantain & Cashew — Growing Communities",
+            "subheading": "Lobito Farms exports premium cash crops while investing in the farming communities that make it possible.",
+            "image": "https://images.pexels.com/photos/30801781/pexels-photo-30801781.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop",
+            "primaryCta": {
+              "label": "Explore Our Crops",
+              "href": "/crops"
+            },
+            "secondaryCta": {
+              "label": "Support Our NGO",
+              "href": "/ngo/donate"
+            }
+          },
+          "_id": "6a8ce52c9aeae0951447a8d4"
+        },
+        {
+          "type": "stat_counters",
+          "order": 1,
+          "config": {
+            "stats": [
+              {
+                "label": "Farmers Supported",
+                "value": 5200
+              },
+              {
+                "label": "Hectares Cultivated",
+                "value": 3100
+              },
+              {
+                "label": "Tons Exported / Year",
+                "value": 8600
+              },
+              {
+                "label": "Active NGO Programs",
+                "value": 4
+              }
+            ]
+          },
+          "_id": "6a8ce52c9aeae0951447a8d5"
+        },
+        {
+          "type": "card_grid",
+          "order": 2,
+          "config": {
+            "heading": "Our Crops",
+            "source": "crops",
+            "limit": 4
+          },
+          "_id": "6a8ce52c9aeae0951447a8d6"
+        },
+        {
+          "type": "card_grid",
+          "order": 3,
+          "config": {
+            "heading": "Foundation Programs",
+            "source": "ngoPrograms",
+            "limit": 3
+          },
+          "_id": "6a8ce52c9aeae0951447a8d7"
+        },
+        {
+          "type": "testimonial_carousel",
+          "order": 4,
+          "config": {
+            "heading": "Voices From Our Community"
+          },
+          "_id": "6a8ce52c9aeae0951447a8d8"
+        },
+        {
+          "type": "cta_banner",
+          "order": 5,
+          "config": {
+            "heading": "Partner With Lobito Farms",
+            "subheading": "Whether you are a buyer, donor, or volunteer — there is a way to get involved.",
+            "cta": {
+              "label": "Contact Us",
+              "href": "/contact"
+            }
+          },
+          "_id": "6a8ce52c9aeae0951447a8d9"
+        }
+      ],
+      "status": "published",
+      "seo": {
+        "metaTitle": "Lobito Farms | Cocoa, Plantain & Cashew Exporter and Foundation"
+      },
+      "createdBy": "6a8ce52b9aeae0951447a8a3",
+      "updatedBy": "6a8ce52b9aeae0951447a8a3",
+      "createdAt": "2026-08-25T00:43:24.743Z",
+      "updatedAt": "2026-08-25T00:43:24.743Z",
+      "__v": 0
+    },
+    "about": {
+      "_id": "6a8ce52c9aeae0951447a8db",
+      "slug": "about",
+      "title": "About Us",
+      "blocks": [
+        {
+          "type": "text_image",
+          "order": 0,
+          "config": {
+            "heading": "Three Generations of Growing Well",
+            "body": "<p>Lobito Farms started as a single cocoa smallholding and has grown into a cooperative-backed exporter of cocoa, plantain, cashew, and coffee. We still farm the way we started: hands-on, close to the soil, and close to the communities who work it with us.</p><p>Today we work with over 5,000 farmers across our growing region, combining export-grade quality control with a foundation that reinvests in the villages our supply chain depends on.</p>",
+            "image": "https://images.pexels.com/photos/38839544/pexels-photo-38839544.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&fit=crop",
+            "imagePosition": "right"
+          },
+          "_id": "6a8ce52c9aeae0951447a8dc"
+        },
+        {
+          "type": "stat_counters",
+          "order": 1,
+          "config": {
+            "stats": [
+              {
+                "label": "Years Farming",
+                "value": 34
+              },
+              {
+                "label": "Cooperative Farmers",
+                "value": 5200
+              },
+              {
+                "label": "Export Markets",
+                "value": 12
+              },
+              {
+                "label": "NGO Programs",
+                "value": 4
+              }
+            ]
+          },
+          "_id": "6a8ce52c9aeae0951447a8dd"
+        },
+        {
+          "type": "text_image",
+          "order": 2,
+          "config": {
+            "heading": "Sustainability & Certification",
+            "body": "<p>Our cocoa is Fair Trade certified, and our agronomy teams train farmers in shade-grown, low-input practices that protect soil health for the next harvest. Every shipment is traceable back to the cooperative that grew it.</p>",
+            "image": "https://images.pexels.com/photos/34411687/pexels-photo-34411687.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&fit=crop",
+            "imagePosition": "left"
+          },
+          "_id": "6a8ce52c9aeae0951447a8de"
+        },
+        {
+          "type": "cta_banner",
+          "order": 3,
+          "config": {
+            "heading": "Want to Source From Us?",
+            "subheading": "Reach out to our export team for samples, pricing, and certification documents.",
+            "cta": {
+              "label": "Contact Us",
+              "href": "/contact"
+            }
+          },
+          "_id": "6a8ce52c9aeae0951447a8df"
+        }
+      ],
+      "status": "published",
+      "seo": {
+        "metaTitle": "About Us | Lobito Farms"
+      },
+      "createdBy": "6a8ce52b9aeae0951447a8a3",
+      "updatedBy": "6a8ce52b9aeae0951447a8a3",
+      "createdAt": "2026-08-25T00:43:24.756Z",
+      "updatedAt": "2026-08-25T00:43:24.756Z",
+      "__v": 0
+    },
+    "ngo": {
+      "_id": "6a8ce52c9aeae0951447a8e1",
+      "slug": "ngo",
+      "title": "Lobito Farms Foundation",
+      "blocks": [
+        {
+          "type": "hero",
+          "order": 0,
+          "config": {
+            "heading": "Investing in the Communities Behind Every Harvest",
+            "subheading": "The Lobito Farms Foundation runs training, water, education, and economic empowerment programs across our farming communities.",
+            "image": "https://images.pexels.com/photos/31472079/pexels-photo-31472079.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop",
+            "primaryCta": {
+              "label": "See Our Programs",
+              "href": "#programs"
+            },
+            "secondaryCta": {
+              "label": "Donate",
+              "href": "/ngo/donate"
+            }
+          },
+          "_id": "6a8ce52c9aeae0951447a8e2"
+        },
+        {
+          "type": "stat_counters",
+          "order": 1,
+          "config": {
+            "stats": [
+              {
+                "label": "People Reached",
+                "value": 5950
+              },
+              {
+                "label": "Active Programs",
+                "value": 4
+              },
+              {
+                "label": "Villages Served",
+                "value": 18
+              },
+              {
+                "label": "Scholarships Funded",
+                "value": 210
+              }
+            ]
+          },
+          "_id": "6a8ce52c9aeae0951447a8e3"
+        },
+        {
+          "type": "card_grid",
+          "order": 2,
+          "config": {
+            "heading": "Our Programs",
+            "source": "ngoPrograms",
+            "limit": 4
+          },
+          "_id": "6a8ce52c9aeae0951447a8e4"
+        },
+        {
+          "type": "testimonial_carousel",
+          "order": 3,
+          "config": {
+            "heading": "Community Voices"
+          },
+          "_id": "6a8ce52c9aeae0951447a8e5"
+        },
+        {
+          "type": "cta_banner",
+          "order": 4,
+          "config": {
+            "heading": "Get Involved",
+            "subheading": "Donate, volunteer, or partner with the Lobito Farms Foundation.",
+            "cta": {
+              "label": "Volunteer With Us",
+              "href": "/ngo/volunteer"
+            }
+          },
+          "_id": "6a8ce52c9aeae0951447a8e6"
+        }
+      ],
+      "status": "published",
+      "seo": {
+        "metaTitle": "Lobito Farms Foundation | NGO Programs"
+      },
+      "createdBy": "6a8ce52b9aeae0951447a8a3",
+      "updatedBy": "6a8ce52b9aeae0951447a8a3",
+      "createdAt": "2026-08-25T00:43:24.766Z",
+      "updatedAt": "2026-08-25T00:43:24.766Z",
+      "__v": 0
+    }
+  },
+  "siteSettings": {
+    "_id": "6a8ce52c9aeae0951447a8e8",
+    "singleton": "main",
+    "siteName": "Lobito Farms",
+    "tagline": "Cultivating Crops. Cultivating Communities.",
+    "logo": "",
+    "contactEmail": "hello@lobitofarms.com",
+    "contactPhone": "+233 20 000 0000",
+    "address": "Lobito River Valley, West Africa",
+    "social": {
+      "facebook": "#",
+      "instagram": "#",
+      "twitter": "#",
+      "linkedin": "#"
+    },
+    "footerText": "Lobito Farms — sustainably grown cocoa, plantain, cashew and coffee, with a foundation reinvesting in farming communities.",
+    "theme": {
+      "primaryColor": "#2f5233",
+      "accentColor": "#c98a3a"
+    },
+    "createdAt": "2026-08-25T00:43:24.788Z",
+    "updatedAt": "2026-08-25T00:43:24.788Z",
+    "__v": 0
+  }
+}
