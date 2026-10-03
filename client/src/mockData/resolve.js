@@ -12,7 +12,7 @@ const LIST_SOURCES = {
   crops: fixture.crops,
   products: fixture.products,
   'ngo-programs': fixture.ngoPrograms,
-  blog: fixture.blog,
+  blog: fixture.blogPosts,
 };
 
 export default function resolveFromFixture(config) {
