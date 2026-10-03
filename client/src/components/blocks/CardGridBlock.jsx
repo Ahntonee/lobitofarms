@@ -11,7 +11,7 @@ const SOURCE_CONFIG = {
 };
 
 export default function CardGridBlock({ config = {} }) {
-  const { heading, source = 'crops', limit = 3 } = config;
+  const { heading, source = 'crops', limit = 3, anchor } = config;
   const sourceConfig = SOURCE_CONFIG[source] || SOURCE_CONFIG.crops;
   const [items, setItems] = useState(null);
 
@@ -29,7 +29,7 @@ export default function CardGridBlock({ config = {} }) {
   }, [sourceConfig.endpoint, limit]);
 
   return (
-    <section className="section">
+    <section className="section" id={anchor || undefined} style={anchor ? { scrollMarginTop: 80 } : undefined}>
       <div className="container">
         {heading && <h2 className="h3 fw-bold mb-4 text-center">{heading}</h2>}
         {items === null ? (

@@ -88,6 +88,10 @@ export default function BlockConfigEditor({ type, config, onChange }) {
             </select>
           </div>
           <div className="mb-2"><label className="form-label small">Limit</label><input type="number" className="form-control form-control-sm" value={config.limit ?? 3} onChange={(e) => set({ limit: Number(e.target.value) })} /></div>
+          <div className="mb-2">
+            <label className="form-label small">Anchor ID (optional, for linking a button to this section, e.g. "programs")</label>
+            <input className="form-control form-control-sm" value={config.anchor || ''} onChange={(e) => set({ anchor: e.target.value.trim() })} />
+          </div>
         </>
       );
     case 'testimonial_carousel':

@@ -3,10 +3,16 @@ import { Link } from 'react-router-dom';
 import api from '../../api/client';
 import PageHeader from '../../components/ui/PageHeader';
 import { LoadingState, ErrorState, EmptyState } from '../../components/ui/LoadingState';
+import useDocumentMeta from '../../hooks/useDocumentMeta';
 
 export default function Blog() {
   const [posts, setPosts] = useState(null);
   const [error, setError] = useState(false);
+
+  useDocumentMeta(
+    'Blog | Lobito Farms',
+    'Farming practices, community impact, and updates from Lobito Farms.'
+  );
 
   function load() {
     setError(false);

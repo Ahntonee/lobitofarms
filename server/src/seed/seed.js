@@ -187,7 +187,10 @@ async function seed() {
       moq: p.moq,
       packaging: p.packaging,
       status: 'published',
-      seo: { metaTitle: `${p.name} | Lobito Farms` },
+      seo: {
+        metaTitle: `${p.name} | Lobito Farms`,
+        metaDescription: `${p.name} sourced directly from Lobito Farms' network of cooperative growers, quality-checked and export-ready. MOQ ${p.moq}.`.slice(0, 155),
+      },
       createdBy: editor._id,
       updatedBy: editor._id,
     });
@@ -239,7 +242,7 @@ async function seed() {
         ...p,
         image: PEXELS(PROGRAM_IMAGES[p.slug], 800, 600),
         status: 'published',
-        seo: { metaTitle: `${p.title} | Lobito Farms Foundation` },
+        seo: { metaTitle: `${p.title} | Lobito Farms Foundation`, metaDescription: p.description.slice(0, 155) },
         createdBy: superAdmin._id,
         updatedBy: superAdmin._id,
       })
@@ -288,7 +291,7 @@ async function seed() {
       category: 'Farming Practices',
       status: 'published',
       publishedAt: new Date(now - 12 * 86400000),
-      seo: { metaTitle: 'How We Ferment Cocoa for Export-Grade Flavor' },
+      seo: { metaTitle: 'How We Ferment Cocoa for Export-Grade Flavor', metaDescription: 'A look inside our fermentation process and why timing determines flavor quality.' },
       createdBy: editor._id,
       updatedBy: editor._id,
     },
@@ -303,7 +306,7 @@ async function seed() {
       category: 'Community Impact',
       status: 'published',
       publishedAt: new Date(now - 5 * 86400000),
-      seo: { metaTitle: "Inside the Women's Agribusiness Cooperative" },
+      seo: { metaTitle: "Inside the Women's Agribusiness Cooperative", metaDescription: 'Meet the cooperative turning raw cashew into higher-value kernels.' },
       createdBy: superAdmin._id,
       updatedBy: superAdmin._id,
     },
@@ -317,7 +320,7 @@ async function seed() {
       tags: ['export', 'forecast'],
       category: 'Company Updates',
       status: 'draft',
-      seo: {},
+      seo: { metaTitle: '2026 Harvest Outlook: What Buyers Should Expect', metaDescription: 'Early projections for cocoa and cashew volumes this season.' },
       createdBy: contributor._id,
       updatedBy: contributor._id,
     },
@@ -332,7 +335,7 @@ async function seed() {
       category: 'Community Impact',
       status: 'in_review',
       publishAt: new Date(now + 2 * 60000),
-      seo: {},
+      seo: { metaTitle: 'Why We Invest in Clean Water, Not Just Crops', metaDescription: 'Why Lobito Farms funds clean water infrastructure alongside crop investment.' },
       createdBy: editor._id,
       updatedBy: editor._id,
     },
@@ -401,7 +404,10 @@ async function seed() {
         },
       },
     ],
-    seo: { metaTitle: 'Lobito Farms | Cocoa, Plantain & Cashew Exporter and Foundation' },
+    seo: {
+      metaTitle: 'Lobito Farms | Cocoa, Plantain & Cashew Exporter and Foundation',
+      metaDescription: 'Lobito Farms exports premium cocoa, plantain, cashew and coffee while investing in the farming communities that make it possible.',
+    },
     createdBy: superAdmin._id,
     updatedBy: superAdmin._id,
   });
@@ -454,7 +460,10 @@ async function seed() {
         },
       },
     ],
-    seo: { metaTitle: 'About Us | Lobito Farms' },
+    seo: {
+      metaTitle: 'About Us | Lobito Farms',
+      metaDescription: 'Three generations of growing cocoa, plantain, cashew and coffee — and the cooperative of 5,000+ farmers behind it.',
+    },
     createdBy: superAdmin._id,
     updatedBy: superAdmin._id,
   });
@@ -491,7 +500,7 @@ async function seed() {
       {
         type: 'card_grid',
         order: 2,
-        config: { heading: 'Our Programs', source: 'ngoPrograms', limit: 4 },
+        config: { heading: 'Our Programs', source: 'ngoPrograms', limit: 4, anchor: 'programs' },
       },
       {
         type: 'testimonial_carousel',
@@ -508,7 +517,10 @@ async function seed() {
         },
       },
     ],
-    seo: { metaTitle: 'Lobito Farms Foundation | NGO Programs' },
+    seo: {
+      metaTitle: 'Lobito Farms Foundation | NGO Programs',
+      metaDescription: 'Training, clean water, education and economic empowerment programs the Lobito Farms Foundation runs across our farming communities.',
+    },
     createdBy: superAdmin._id,
     updatedBy: superAdmin._id,
   });

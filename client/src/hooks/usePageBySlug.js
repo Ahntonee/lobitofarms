@@ -13,6 +13,15 @@ export default function usePageBySlug(slug) {
       .then((res) => {
         setPage(res.data);
         if (res.data.seo?.metaTitle) document.title = res.data.seo.metaTitle;
+        if (res.data.seo?.metaDescription) {
+          let tag = document.querySelector('meta[name="description"]');
+          if (!tag) {
+            tag = document.createElement('meta');
+            tag.setAttribute('name', 'description');
+            document.head.appendChild(tag);
+          }
+          tag.setAttribute('content', res.data.seo.metaDescription);
+        }
       })
       .catch(() => setError(true));
   }, [slug]);

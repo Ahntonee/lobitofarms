@@ -2,10 +2,16 @@ import { useEffect, useState } from 'react';
 import api from '../../api/client';
 import PageHeader from '../../components/ui/PageHeader';
 import { LoadingState, ErrorState, EmptyState } from '../../components/ui/LoadingState';
+import useDocumentMeta from '../../hooks/useDocumentMeta';
 
 export default function Gallery() {
   const [images, setImages] = useState(null);
   const [error, setError] = useState(false);
+
+  useDocumentMeta(
+    'Gallery | Lobito Farms',
+    'Photos from our farms, harvests, and community programs.'
+  );
 
   function load() {
     setError(false);

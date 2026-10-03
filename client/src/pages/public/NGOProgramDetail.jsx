@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api from '../../api/client';
 import { LoadingState, ErrorState } from '../../components/ui/LoadingState';
+import useDocumentMeta from '../../hooks/useDocumentMeta';
 
 export default function NGOProgramDetail() {
   const { slug } = useParams();
@@ -17,6 +18,11 @@ export default function NGOProgramDetail() {
       .catch(() => setError(true));
   }
   useEffect(load, [slug]);
+
+  useDocumentMeta(
+    program && (program.seo?.metaTitle || `${program.title} | Lobito Farms Foundation`),
+    program && (program.seo?.metaDescription || program.description)
+  );
 
   if (error) return <ErrorState message="Program not found." onRetry={load} />;
   if (!program) return <LoadingState />;

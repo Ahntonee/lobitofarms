@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api from '../../api/client';
 import { LoadingState, ErrorState } from '../../components/ui/LoadingState';
+import useDocumentMeta from '../../hooks/useDocumentMeta';
 
 export default function BlogPostDetail() {
   const { slug } = useParams();
@@ -13,13 +14,15 @@ export default function BlogPostDetail() {
     setPost(null);
     api
       .get(`/blog/slug/${slug}`)
-      .then((res) => {
-        setPost(res.data);
-        if (res.data.seo?.metaTitle) document.title = res.data.seo.metaTitle;
-      })
+      .then((res) => setPost(res.data))
       .catch(() => setError(true));
   }
   useEffect(load, [slug]);
+
+  useDocumentMeta(
+    post && (post.seo?.metaTitle || `${post.title} | Lobito Farms`),
+    post && (post.seo?.metaDescription || post.excerpt)
+  );
 
   if (error) return <ErrorState message="Post not found." onRetry={load} />;
   if (!post) return <LoadingState />;

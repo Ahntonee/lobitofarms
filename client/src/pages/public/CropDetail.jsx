@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api from '../../api/client';
 import { LoadingState, ErrorState } from '../../components/ui/LoadingState';
+import useDocumentMeta from '../../hooks/useDocumentMeta';
 
 export default function CropDetail() {
   const { slug } = useParams();
@@ -13,13 +14,15 @@ export default function CropDetail() {
     setCrop(null);
     api
       .get(`/crops/slug/${slug}`)
-      .then((res) => {
-        setCrop(res.data);
-        if (res.data.seo?.metaTitle) document.title = res.data.seo.metaTitle;
-      })
+      .then((res) => setCrop(res.data))
       .catch(() => setError(true));
   }
   useEffect(load, [slug]);
+
+  useDocumentMeta(
+    crop && (crop.seo?.metaTitle || `${crop.name} | Lobito Farms`),
+    crop && (crop.seo?.metaDescription || crop.description)
+  );
 
   if (error) return <ErrorState message="Crop not found." onRetry={load} />;
   if (!crop) return <LoadingState />;

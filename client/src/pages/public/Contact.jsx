@@ -1,9 +1,15 @@
 import PageHeader from '../../components/ui/PageHeader';
 import InquiryForm from '../../components/ui/InquiryForm';
 import { useSiteSettings } from '../../context/SiteSettingsContext';
+import useDocumentMeta from '../../hooks/useDocumentMeta';
 
 export default function Contact() {
   const settings = useSiteSettings();
+
+  useDocumentMeta(
+    'Contact Us | Lobito Farms',
+    'Questions about sourcing, partnerships, or our foundation programs — get in touch with Lobito Farms.'
+  );
 
   return (
     <>

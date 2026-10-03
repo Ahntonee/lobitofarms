@@ -22,6 +22,7 @@ export default function Footer() {
               <li><Link to="/products">Products</Link></li>
               <li><Link to="/blog">Blog</Link></li>
               <li><Link to="/gallery">Gallery</Link></li>
+              <li><Link to="/careers">Careers</Link></li>
             </ul>
           </div>
           <div className="col-6 col-md-2">

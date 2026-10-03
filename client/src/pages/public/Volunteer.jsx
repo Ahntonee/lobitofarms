@@ -1,7 +1,13 @@
 import PageHeader from '../../components/ui/PageHeader';
 import InquiryForm from '../../components/ui/InquiryForm';
+import useDocumentMeta from '../../hooks/useDocumentMeta';
 
 export default function Volunteer() {
+  useDocumentMeta(
+    'Volunteer | Lobito Farms',
+    'Join a Farmer Field School session, a water project build, or a cooperative training day with Lobito Farms.'
+  );
+
   return (
     <>
       <PageHeader eyebrow="Foundation" title="Get Involved" subtitle="Join a Farmer Field School session, a water project build, or a cooperative training day." />

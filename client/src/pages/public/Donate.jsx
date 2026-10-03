@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PageHeader from '../../components/ui/PageHeader';
 import InquiryForm from '../../components/ui/InquiryForm';
+import useDocumentMeta from '../../hooks/useDocumentMeta';
 
 const AMOUNTS = [25, 50, 100, 250];
 
@@ -8,6 +9,11 @@ export default function Donate() {
   const [amount, setAmount] = useState(50);
   const [custom, setCustom] = useState('');
   const [frequency, setFrequency] = useState('one_time');
+
+  useDocumentMeta(
+    'Donate | Lobito Farms',
+    "Your gift funds farmer training, clean water, education, and women's cooperatives through the Lobito Farms Foundation."
+  );
 
   const finalAmount = custom ? Number(custom) : amount;
 

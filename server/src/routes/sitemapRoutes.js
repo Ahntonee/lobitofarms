@@ -17,17 +17,34 @@ router.get(
       { model: Product, prefix: '/products' },
       { model: BlogPost, prefix: '/blog' },
       { model: NGOProgram, prefix: '/ngo/programs' },
-      { model: Page, prefix: '' },
     ];
 
-    const urls = ['', '/about', '/crops', '/products', '/ngo', '/blog', '/gallery', '/contact'];
+    const urls = new Set([
+      '',
+      '/about',
+      '/crops',
+      '/products',
+      '/ngo',
+      '/ngo/donate',
+      '/ngo/volunteer',
+      '/blog',
+      '/gallery',
+      '/contact',
+      '/careers',
+    ]);
 
     for (const section of sections) {
       const docs = await section.model.find({ status: 'published' }).select('slug updatedAt');
-      docs.forEach((doc) => urls.push(`${section.prefix}/${doc.slug}`));
+      docs.forEach((doc) => urls.add(`${section.prefix}/${doc.slug}`));
     }
 
-    const body = urls
+    // Page documents are keyed by slug ("home", "about", "ngo"), but the home page's
+    // real route is "/" not "/home" — map it explicitly instead of concatenating the
+    // slug, and let the Set dedupe against the static entries above.
+    const pages = await Page.find({ status: 'published' }).select('slug');
+    pages.forEach((doc) => urls.add(doc.slug === 'home' ? '' : `/${doc.slug}`));
+
+    const body = [...urls]
       .map((path) => `  <url><loc>${clientUrl}${path}</loc></url>`)
       .join('\n');
 

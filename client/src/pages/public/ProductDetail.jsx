@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import api from '../../api/client';
 import InquiryForm from '../../components/ui/InquiryForm';
 import { LoadingState, ErrorState } from '../../components/ui/LoadingState';
+import useDocumentMeta from '../../hooks/useDocumentMeta';
 
 export default function ProductDetail() {
   const { slug } = useParams();
@@ -18,6 +19,11 @@ export default function ProductDetail() {
       .catch(() => setError(true));
   }
   useEffect(load, [slug]);
+
+  useDocumentMeta(
+    product && (product.seo?.metaTitle || `${product.name} | Lobito Farms`),
+    product && (product.seo?.metaDescription || product.description)
+  );
 
   if (error) return <ErrorState message="Product not found." onRetry={load} />;
   if (!product) return <LoadingState />;
