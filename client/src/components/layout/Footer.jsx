@@ -3,9 +3,27 @@ import { useSiteSettings } from '../../context/SiteSettingsContext';
 
 const SOCIAL_LABELS = { facebook: 'Facebook', instagram: 'Instagram', twitter: 'Twitter', linkedin: 'LinkedIn' };
 
+// Fallback shown only until site settings load (or if an admin clears the groups) — the
+// real, admin-editable groups live in Site Settings → Navigation.
+const FALLBACK_GROUPS = [
+  { title: 'Explore', links: [
+    { label: 'Our Crops', path: '/crops' },
+    { label: 'Products', path: '/products' },
+    { label: 'Shop', path: '/shop' },
+    { label: 'Blog', path: '/blog' },
+    { label: 'Gallery', path: '/gallery' },
+  ] },
+  { title: 'Foundation', links: [
+    { label: 'Programs', path: '/ngo' },
+    { label: 'Donate', path: '/ngo/donate' },
+    { label: 'Volunteer', path: '/ngo/volunteer' },
+  ] },
+];
+
 export default function Footer() {
   const settings = useSiteSettings();
   const year = new Date().getFullYear();
+  const linkGroups = settings.footerLinkGroups?.length ? settings.footerLinkGroups : FALLBACK_GROUPS;
 
   // '#' is the seed/admin-form placeholder for "not set yet" — only show platforms an
   // admin has actually filled in with a real URL.
@@ -21,24 +39,16 @@ export default function Footer() {
               {settings.tagline || settings.footerText}
             </p>
           </div>
-          <div className="col-6 col-md-2">
-            <h3 className="h6 mb-3">Explore</h3>
-            <ul className="list-unstyled small d-flex flex-column gap-2">
-              <li><Link to="/crops">Our Crops</Link></li>
-              <li><Link to="/products">Products</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
-              <li><Link to="/gallery">Gallery</Link></li>
-              <li><Link to="/careers">Careers</Link></li>
-            </ul>
-          </div>
-          <div className="col-6 col-md-2">
-            <h3 className="h6 mb-3">Foundation</h3>
-            <ul className="list-unstyled small d-flex flex-column gap-2">
-              <li><Link to="/ngo">Programs</Link></li>
-              <li><Link to="/ngo/donate">Donate</Link></li>
-              <li><Link to="/ngo/volunteer">Volunteer</Link></li>
-            </ul>
-          </div>
+          {linkGroups.map((group) => (
+            <div className="col-6 col-md-2" key={group.title}>
+              <h3 className="h6 mb-3">{group.title}</h3>
+              <ul className="list-unstyled small d-flex flex-column gap-2">
+                {group.links.map((link) => (
+                  <li key={link.path}><Link to={link.path}>{link.label}</Link></li>
+                ))}
+              </ul>
+            </div>
+          ))}
           <div className="col-12 col-md-4">
             <h3 className="h6 mb-3">Contact</h3>
             <ul className="list-unstyled small d-flex flex-column gap-2">

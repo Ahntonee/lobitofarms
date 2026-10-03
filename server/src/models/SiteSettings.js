@@ -20,6 +20,23 @@ const siteSettingsSchema = new mongoose.Schema(
       primaryColor: { type: String, default: '#2f5233' },
       accentColor: { type: String, default: '#c98a3a' },
     },
+    navLinks: [
+      {
+        label: { type: String, required: true },
+        path: { type: String, required: true },
+      },
+    ],
+    footerLinkGroups: [
+      {
+        title: { type: String, required: true },
+        links: [
+          {
+            label: { type: String, required: true },
+            path: { type: String, required: true },
+          },
+        ],
+      },
+    ],
   },
   { timestamps: true }
 );

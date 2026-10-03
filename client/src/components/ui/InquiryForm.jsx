@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import api from '../../api/client';
 
-export default function InquiryForm({ type, meta = {}, extraFields, submitLabel = 'Submit' }) {
+export default function InquiryForm({ type, meta = {}, extraFields, submitLabel = 'Submit', disabled = false }) {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errorMsg, setErrorMsg] = useState('');
@@ -79,7 +79,7 @@ export default function InquiryForm({ type, meta = {}, extraFields, submitLabel 
         />
       </div>
       {status === 'error' && <div className="alert alert-danger py-2">{errorMsg}</div>}
-      <button type="submit" className="btn btn-primary" disabled={status === 'submitting'}>
+      <button type="submit" className="btn btn-primary" disabled={status === 'submitting' || disabled}>
         {status === 'submitting' ? 'Submitting…' : submitLabel}
       </button>
     </form>

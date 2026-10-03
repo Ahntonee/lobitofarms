@@ -1,16 +1,13 @@
-import PageHeader from '../../components/ui/PageHeader';
 import InquiryForm from '../../components/ui/InquiryForm';
-import useDocumentMeta from '../../hooks/useDocumentMeta';
+import BlockRenderer from '../../components/blocks/BlockRenderer';
+import usePageBySlug from '../../hooks/usePageBySlug';
 
 export default function Volunteer() {
-  useDocumentMeta(
-    'Volunteer | Lobito Farms',
-    'Join a Farmer Field School session, a water project build, or a cooperative training day with Lobito Farms.'
-  );
+  const { page } = usePageBySlug('ngo-volunteer');
 
   return (
     <>
-      <PageHeader eyebrow="Foundation" title="Get Involved" subtitle="Join a Farmer Field School session, a water project build, or a cooperative training day." />
+      {page && <BlockRenderer blocks={page.blocks} />}
       <section className="section">
         <div className="container">
           <div className="row justify-content-center">

@@ -525,6 +525,91 @@ async function seed() {
     updatedBy: superAdmin._id,
   });
 
+  console.log('Creating simple header pages (Crops, Products, Blog, Gallery, Contact, Shop, Donate, Volunteer)...');
+  const simplePageDefs = [
+    {
+      slug: 'crops',
+      title: 'Our Crops',
+      metaDescription: 'Cocoa, plantain, cashew, and coffee — grown, processed, and quality-checked for export by Lobito Farms.',
+      header: { eyebrow: 'What We Grow', title: 'Our Crops', subtitle: 'Cocoa, plantain, cashew, and coffee — grown, processed, and quality-checked for export.' },
+    },
+    {
+      slug: 'products',
+      title: 'Products',
+      metaDescription: 'Export-ready cocoa, cashew, plantain, and coffee products with grading, packaging, and MOQ details.',
+      header: { eyebrow: 'Export Catalog', title: 'Products', subtitle: 'Export-ready cocoa, cashew, plantain, and coffee products with grading, packaging, and MOQ details.' },
+    },
+    {
+      slug: 'blog',
+      title: 'Blog',
+      metaDescription: 'Farming practices, community impact, and updates from Lobito Farms.',
+      header: { eyebrow: 'News', title: 'Blog', subtitle: 'Farming practices, community impact, and updates from Lobito Farms.' },
+    },
+    {
+      slug: 'gallery',
+      title: 'Gallery',
+      metaDescription: 'Photos from our farms, harvests, and community programs.',
+      header: { eyebrow: 'In Pictures', title: 'Gallery', subtitle: 'Photos from our farms, harvests, and community programs.' },
+    },
+    {
+      slug: 'contact',
+      title: 'Contact Us',
+      metaDescription: 'Questions about sourcing, partnerships, or our foundation programs — get in touch with Lobito Farms.',
+      header: { eyebrow: 'Get in Touch', title: 'Contact Us', subtitle: 'Questions about sourcing, partnerships, or our foundation programs — reach out.' },
+    },
+    {
+      slug: 'shop',
+      title: 'Shop',
+      metaDescription: 'Order or pre-order bulk cocoa, cashew, plantain, and coffee directly from Lobito Farms.',
+      header: { eyebrow: 'Bulk Orders', title: 'Shop', subtitle: 'Select the products and quantities you need — our export team will follow up to confirm pricing and logistics.' },
+    },
+    {
+      slug: 'ngo-volunteer',
+      title: 'Get Involved',
+      metaDescription: 'Join a Farmer Field School session, a water project build, or a cooperative training day with Lobito Farms.',
+      header: { eyebrow: 'Foundation', title: 'Get Involved', subtitle: 'Join a Farmer Field School session, a water project build, or a cooperative training day.' },
+    },
+  ];
+
+  for (const def of simplePageDefs) {
+    await Page.create({
+      slug: def.slug,
+      title: def.title,
+      status: 'published',
+      blocks: [{ type: 'page_header', order: 0, config: def.header }],
+      seo: { metaTitle: `${def.title} | Lobito Farms`, metaDescription: def.metaDescription },
+      createdBy: superAdmin._id,
+      updatedBy: superAdmin._id,
+    });
+  }
+
+  await Page.create({
+    slug: 'ngo-donate',
+    title: 'Donate',
+    status: 'published',
+    blocks: [
+      {
+        type: 'page_header',
+        order: 0,
+        config: { eyebrow: 'Foundation', title: 'Donate', subtitle: "Your gift funds farmer training, clean water, education, and women's cooperatives." },
+      },
+      {
+        type: 'donate_form',
+        order: 1,
+        config: {
+          amounts: [25, 50, 100, 250],
+          note: 'Payment processing is not connected in this build. Submitting this form records your donation interest — our team will follow up with secure payment instructions.',
+        },
+      },
+    ],
+    seo: {
+      metaTitle: 'Donate | Lobito Farms',
+      metaDescription: "Your gift funds farmer training, clean water, education, and women's cooperatives through the Lobito Farms Foundation.",
+    },
+    createdBy: superAdmin._id,
+    updatedBy: superAdmin._id,
+  });
+
   console.log('Creating site settings...');
   await SiteSettings.create({
     singleton: 'main',
@@ -536,6 +621,37 @@ async function seed() {
     social: { facebook: '#', instagram: '#', twitter: '#', linkedin: '#' },
     footerText: `Lobito Farms — sustainably grown cocoa, plantain, cashew and coffee, with a foundation reinvesting in farming communities.`,
     theme: { primaryColor: '#2f5233', accentColor: '#c98a3a' },
+    navLinks: [
+      { label: 'Home', path: '/' },
+      { label: 'About', path: '/about' },
+      { label: 'Crops', path: '/crops' },
+      { label: 'Products', path: '/products' },
+      { label: 'Shop', path: '/shop' },
+      { label: 'NGO', path: '/ngo' },
+      { label: 'Blog', path: '/blog' },
+      { label: 'Gallery', path: '/gallery' },
+      { label: 'Contact', path: '/contact' },
+    ],
+    footerLinkGroups: [
+      {
+        title: 'Explore',
+        links: [
+          { label: 'Our Crops', path: '/crops' },
+          { label: 'Products', path: '/products' },
+          { label: 'Shop', path: '/shop' },
+          { label: 'Blog', path: '/blog' },
+          { label: 'Gallery', path: '/gallery' },
+        ],
+      },
+      {
+        title: 'Foundation',
+        links: [
+          { label: 'Programs', path: '/ngo' },
+          { label: 'Donate', path: '/ngo/donate' },
+          { label: 'Volunteer', path: '/ngo/volunteer' },
+        ],
+      },
+    ],
   });
 
   console.log('\nSeed complete. Login credentials:');

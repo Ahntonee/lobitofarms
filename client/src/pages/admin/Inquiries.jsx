@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import api from '../../api/client';
 import { LoadingState, EmptyState } from '../../components/ui/LoadingState';
 
-const TYPES = ['contact', 'volunteer', 'donation', 'quote'];
+const TYPES = ['contact', 'volunteer', 'donation', 'quote', 'order'];
 const STATUSES = ['new', 'read', 'responded', 'archived'];
 
 export default function Inquiries() {

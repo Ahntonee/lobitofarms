@@ -38,6 +38,7 @@ router.post('/contact', submitLimiter, validateSubmission, checkValidation, subm
 router.post('/volunteer', submitLimiter, validateSubmission, checkValidation, submitAs('volunteer'));
 router.post('/donation', submitLimiter, validateSubmission, checkValidation, submitAs('donation'));
 router.post('/quote', submitLimiter, validateSubmission, checkValidation, submitAs('quote'));
+router.post('/order', submitLimiter, validateSubmission, checkValidation, submitAs('order'));
 
 // Admin management
 router.get(

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const TYPES = ['contact', 'volunteer', 'donation', 'quote'];
+const TYPES = ['contact', 'volunteer', 'donation', 'quote', 'order'];
 const INQUIRY_STATUS = ['new', 'read', 'responded', 'archived'];
 
 const inquirySchema = new mongoose.Schema(

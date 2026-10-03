@@ -1,18 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../api/client';
-import PageHeader from '../../components/ui/PageHeader';
+import BlockRenderer from '../../components/blocks/BlockRenderer';
 import { LoadingState, ErrorState, EmptyState } from '../../components/ui/LoadingState';
-import useDocumentMeta from '../../hooks/useDocumentMeta';
+import usePageBySlug from '../../hooks/usePageBySlug';
 
 export default function Crops() {
+  const { page } = usePageBySlug('crops');
   const [crops, setCrops] = useState(null);
   const [error, setError] = useState(false);
-
-  useDocumentMeta(
-    'Our Crops | Lobito Farms',
-    'Cocoa, plantain, cashew, and coffee — grown, processed, and quality-checked for export by Lobito Farms.'
-  );
 
   function load() {
     setError(false);
@@ -23,11 +19,7 @@ export default function Crops() {
 
   return (
     <>
-      <PageHeader
-        eyebrow="What We Grow"
-        title="Our Crops"
-        subtitle="Cocoa, plantain, cashew, and coffee — grown, processed, and quality-checked for export."
-      />
+      {page && <BlockRenderer blocks={page.blocks} />}
       <section className="section">
         <div className="container">
           {error ? (

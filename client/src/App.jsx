@@ -18,7 +18,7 @@ import Blog from './pages/public/Blog';
 import BlogPostDetail from './pages/public/BlogPostDetail';
 import Gallery from './pages/public/Gallery';
 import Contact from './pages/public/Contact';
-import Careers from './pages/public/Careers';
+import Shop from './pages/public/Shop';
 import NotFound from './pages/public/NotFound';
 
 import Login from './pages/admin/Login';
@@ -52,7 +52,7 @@ export default function App() {
         <Route path="/blog/:slug" element={<BlogPostDetail />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/careers" element={<Careers />} />
+        <Route path="/shop" element={<Shop />} />
       </Route>
 
       <Route path="/admin/login" element={<Login />} />

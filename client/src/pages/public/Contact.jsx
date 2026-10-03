@@ -1,19 +1,15 @@
-import PageHeader from '../../components/ui/PageHeader';
 import InquiryForm from '../../components/ui/InquiryForm';
+import BlockRenderer from '../../components/blocks/BlockRenderer';
 import { useSiteSettings } from '../../context/SiteSettingsContext';
-import useDocumentMeta from '../../hooks/useDocumentMeta';
+import usePageBySlug from '../../hooks/usePageBySlug';
 
 export default function Contact() {
   const settings = useSiteSettings();
-
-  useDocumentMeta(
-    'Contact Us | Lobito Farms',
-    'Questions about sourcing, partnerships, or our foundation programs — get in touch with Lobito Farms.'
-  );
+  const { page } = usePageBySlug('contact');
 
   return (
     <>
-      <PageHeader eyebrow="Get in Touch" title="Contact Us" subtitle="Questions about sourcing, partnerships, or our foundation programs — reach out." />
+      {page && <BlockRenderer blocks={page.blocks} />}
       <section className="section">
         <div className="container">
           <div className="row g-4">

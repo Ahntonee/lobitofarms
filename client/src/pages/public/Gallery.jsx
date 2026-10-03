@@ -1,17 +1,13 @@
 import { useEffect, useState } from 'react';
 import api from '../../api/client';
-import PageHeader from '../../components/ui/PageHeader';
+import BlockRenderer from '../../components/blocks/BlockRenderer';
 import { LoadingState, ErrorState, EmptyState } from '../../components/ui/LoadingState';
-import useDocumentMeta from '../../hooks/useDocumentMeta';
+import usePageBySlug from '../../hooks/usePageBySlug';
 
 export default function Gallery() {
+  const { page } = usePageBySlug('gallery');
   const [images, setImages] = useState(null);
   const [error, setError] = useState(false);
-
-  useDocumentMeta(
-    'Gallery | Lobito Farms',
-    'Photos from our farms, harvests, and community programs.'
-  );
 
   function load() {
     setError(false);
@@ -31,7 +27,7 @@ export default function Gallery() {
 
   return (
     <>
-      <PageHeader eyebrow="In Pictures" title="Gallery" subtitle="Photos from our farms, harvests, and community programs." />
+      {page && <BlockRenderer blocks={page.blocks} />}
       <section className="section">
         <div className="container">
           {error ? (

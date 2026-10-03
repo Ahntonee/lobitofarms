@@ -1,18 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../api/client';
-import PageHeader from '../../components/ui/PageHeader';
+import BlockRenderer from '../../components/blocks/BlockRenderer';
 import { LoadingState, ErrorState, EmptyState } from '../../components/ui/LoadingState';
-import useDocumentMeta from '../../hooks/useDocumentMeta';
+import usePageBySlug from '../../hooks/usePageBySlug';
 
 export default function Products() {
+  const { page } = usePageBySlug('products');
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(false);
-
-  useDocumentMeta(
-    'Products | Lobito Farms',
-    'Export-ready cocoa, cashew, plantain, and coffee products with grading, packaging, and MOQ details.'
-  );
 
   function load() {
     setError(false);
@@ -23,7 +19,7 @@ export default function Products() {
 
   return (
     <>
-      <PageHeader eyebrow="Export Catalog" title="Products" subtitle="Export-ready cocoa, cashew, plantain, and coffee products with grading, packaging, and MOQ details." />
+      {page && <BlockRenderer blocks={page.blocks} />}
       <section className="section">
         <div className="container">
           {error ? (

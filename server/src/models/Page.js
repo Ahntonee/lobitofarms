@@ -6,7 +6,17 @@ const blockSchema = new mongoose.Schema(
     type: {
       type: String,
       required: true,
-      enum: ['hero', 'text_image', 'stat_counters', 'testimonial_carousel', 'card_grid', 'cta_banner', 'gallery_grid'],
+      enum: [
+        'hero',
+        'text_image',
+        'stat_counters',
+        'testimonial_carousel',
+        'card_grid',
+        'cta_banner',
+        'gallery_grid',
+        'page_header',
+        'donate_form',
+      ],
     },
     order: { type: Number, required: true },
     config: { type: mongoose.Schema.Types.Mixed, default: {} },

@@ -1,18 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../api/client';
-import PageHeader from '../../components/ui/PageHeader';
+import BlockRenderer from '../../components/blocks/BlockRenderer';
 import { LoadingState, ErrorState, EmptyState } from '../../components/ui/LoadingState';
-import useDocumentMeta from '../../hooks/useDocumentMeta';
+import usePageBySlug from '../../hooks/usePageBySlug';
 
 export default function Blog() {
+  const { page } = usePageBySlug('blog');
   const [posts, setPosts] = useState(null);
   const [error, setError] = useState(false);
-
-  useDocumentMeta(
-    'Blog | Lobito Farms',
-    'Farming practices, community impact, and updates from Lobito Farms.'
-  );
 
   function load() {
     setError(false);
@@ -23,7 +19,7 @@ export default function Blog() {
 
   return (
     <>
-      <PageHeader eyebrow="News" title="Blog" subtitle="Farming practices, community impact, and updates from Lobito Farms." />
+      {page && <BlockRenderer blocks={page.blocks} />}
       <section className="section">
         <div className="container">
           {error ? (

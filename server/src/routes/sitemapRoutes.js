@@ -30,7 +30,7 @@ router.get(
       '/blog',
       '/gallery',
       '/contact',
-      '/careers',
+      '/shop',
     ]);
 
     for (const section of sections) {
@@ -38,11 +38,12 @@ router.get(
       docs.forEach((doc) => urls.add(`${section.prefix}/${doc.slug}`));
     }
 
-    // Page documents are keyed by slug ("home", "about", "ngo"), but the home page's
-    // real route is "/" not "/home" — map it explicitly instead of concatenating the
-    // slug, and let the Set dedupe against the static entries above.
+    // Page documents are keyed by slug ("home", "ngo-donate", ...), which don't all map
+    // 1:1 onto their real route — map the exceptions explicitly and let the Set dedupe
+    // everything else against the static entries above.
+    const SLUG_PATH_OVERRIDES = { home: '', 'ngo-donate': '/ngo/donate', 'ngo-volunteer': '/ngo/volunteer' };
     const pages = await Page.find({ status: 'published' }).select('slug');
-    pages.forEach((doc) => urls.add(doc.slug === 'home' ? '' : `/${doc.slug}`));
+    pages.forEach((doc) => urls.add(SLUG_PATH_OVERRIDES[doc.slug] ?? `/${doc.slug}`));
 
     const body = [...urls]
       .map((path) => `  <url><loc>${clientUrl}${path}</loc></url>`)

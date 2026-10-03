@@ -16,6 +16,8 @@ const BLOCK_LABELS = {
   testimonial_carousel: 'Testimonial Carousel',
   cta_banner: 'CTA Banner',
   gallery_grid: 'Gallery Grid',
+  page_header: 'Page Header',
+  donate_form: 'Donate Form',
 };
 
 export default function PageEditor() {

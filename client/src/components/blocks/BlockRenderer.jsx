@@ -5,6 +5,8 @@ import TestimonialCarouselBlock from './TestimonialCarouselBlock';
 import CtaBannerBlock from './CtaBannerBlock';
 import TextImageBlock from './TextImageBlock';
 import GalleryGridBlock from './GalleryGridBlock';
+import PageHeaderBlock from './PageHeaderBlock';
+import DonateFormBlock from './DonateFormBlock';
 
 export const BLOCK_COMPONENTS = {
   hero: HeroBlock,
@@ -14,6 +16,8 @@ export const BLOCK_COMPONENTS = {
   cta_banner: CtaBannerBlock,
   text_image: TextImageBlock,
   gallery_grid: GalleryGridBlock,
+  page_header: PageHeaderBlock,
+  donate_form: DonateFormBlock,
 };
 
 export const BLOCK_TYPES = Object.keys(BLOCK_COMPONENTS);

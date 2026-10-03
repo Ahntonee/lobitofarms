@@ -113,6 +113,41 @@ export default function BlockConfigEditor({ type, config, onChange }) {
         </>
       );
     }
+    case 'page_header':
+      return (
+        <>
+          <div className="mb-2"><label className="form-label small">Eyebrow (small label above the title)</label><input className="form-control form-control-sm" value={config.eyebrow || ''} onChange={(e) => set({ eyebrow: e.target.value })} /></div>
+          <div className="mb-2"><label className="form-label small">Title</label><input className="form-control form-control-sm" value={config.title || ''} onChange={(e) => set({ title: e.target.value })} /></div>
+          <div className="mb-2"><label className="form-label small">Subtitle</label><textarea className="form-control form-control-sm" rows={2} value={config.subtitle || ''} onChange={(e) => set({ subtitle: e.target.value })} /></div>
+        </>
+      );
+    case 'donate_form': {
+      const amounts = config.amounts || [];
+      return (
+        <>
+          <div className="mb-2">
+            <label className="form-label small">Preset Amounts ($)</label>
+            {amounts.map((a, i) => (
+              <div className="row g-2 mb-2" key={i}>
+                <div className="col-8">
+                  <input type="number" min="1" className="form-control form-control-sm" value={a} onChange={(e) => { const next = [...amounts]; next[i] = Number(e.target.value); set({ amounts: next }); }} />
+                </div>
+                <div className="col-2">
+                  <button type="button" className="btn btn-sm btn-outline-danger" onClick={() => set({ amounts: amounts.filter((_, idx) => idx !== i) })}>×</button>
+                </div>
+              </div>
+            ))}
+            <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => set({ amounts: [...amounts, 25] })}>
+              + Add Amount
+            </button>
+          </div>
+          <div className="mb-2">
+            <label className="form-label small">Note (shown above the form, e.g. explaining payment isn't live)</label>
+            <textarea className="form-control form-control-sm" rows={2} value={config.note || ''} onChange={(e) => set({ note: e.target.value })} />
+          </div>
+        </>
+      );
+    }
     default:
       return <p className="small text-muted-warm">No editor for this block type.</p>;
   }
