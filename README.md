@@ -42,11 +42,8 @@ for the CMS.
 
 ### Seeded login credentials
 
-| Role | Email | Password |
-|---|---|---|
-| Super Admin | `admin@lobitofarms.com` | `Admin@12345` |
-| Editor | `editor@lobitofarms.com` | `Editor@12345` |
-| Contributor | `contributor@lobitofarms.com` | `Contributor@12345` |
+
+
 
 Re-run `npm run seed` at any time from `server/` to reset the database back to this state.
 
