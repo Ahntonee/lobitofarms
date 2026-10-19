@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import api from '../../api/client';
 import { LoadingState, EmptyState } from '../../components/ui/LoadingState';
 import { useAuth } from '../../context/AuthContext';
-import useConfirm from '../../hooks/useConfirm';
+import useConfirm from '../../hooks/useConfirm.jsx';
 
 export default function MediaLibrary() {
   const { hasRole } = useAuth();

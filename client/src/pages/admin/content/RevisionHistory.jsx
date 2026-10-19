@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import api from '../../../api/client';
 import { useAuth } from '../../../context/AuthContext';
-import useConfirm from '../../../hooks/useConfirm';
+import useConfirm from '../../../hooks/useConfirm.jsx';
 
 export default function RevisionHistory({ endpoint, id, labelField, onRestored }) {
   const [revisions, setRevisions] = useState([]);

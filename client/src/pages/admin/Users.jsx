@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import api from '../../api/client';
 import { LoadingState } from '../../components/ui/LoadingState';
 import { useAuth } from '../../context/AuthContext';
-import useConfirm from '../../hooks/useConfirm';
+import useConfirm from '../../hooks/useConfirm.jsx';
 
 const ROLES = ['contributor', 'editor', 'super_admin'];
 const EMPTY = { name: '', email: '', password: '', role: 'contributor' };

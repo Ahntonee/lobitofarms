@@ -5,7 +5,7 @@ import { CONTENT_TYPES, STATUS_OPTIONS } from '../../../config/contentTypes';
 import { LoadingState, ErrorState, EmptyState } from '../../../components/ui/LoadingState';
 import StatusBadge from '../../../components/ui/StatusBadge';
 import { useAuth } from '../../../context/AuthContext';
-import useConfirm from '../../../hooks/useConfirm';
+import useConfirm from '../../../hooks/useConfirm.jsx';
 
 export default function ContentList() {
   const { type } = useParams();
