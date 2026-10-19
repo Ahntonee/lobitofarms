@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import api from '../../api/client';
 import { LoadingState } from '../../components/ui/LoadingState';
 import { useAuth } from '../../context/AuthContext';
+import useConfirm from '../../hooks/useConfirm';
 
 const ROLES = ['contributor', 'editor', 'super_admin'];
 const EMPTY = { name: '', email: '', password: '', role: 'contributor' };
 
 export default function Users() {
   const { user: me } = useAuth();
+  const { confirm, ConfirmDialog } = useConfirm();
   const [users, setUsers] = useState(null);
   const [form, setForm] = useState(EMPTY);
   const [error, setError] = useState('');
@@ -40,13 +42,15 @@ export default function Users() {
   }
 
   async function handleDelete(id) {
-    if (!window.confirm('Delete this user?')) return;
+    const ok = await confirm({ title: 'Delete User', message: 'This user will be permanently removed. This cannot be undone.', confirmLabel: 'Delete', destructive: true });
+    if (!ok) return;
     await api.delete(`/users/${id}`);
     load();
   }
 
   return (
     <div>
+      {ConfirmDialog}
       <h1 className="h3 mb-4">Users</h1>
       <div className="row g-4">
         <div className="col-12 col-lg-5">

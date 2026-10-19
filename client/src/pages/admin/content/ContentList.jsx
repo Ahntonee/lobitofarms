@@ -5,6 +5,7 @@ import { CONTENT_TYPES, STATUS_OPTIONS } from '../../../config/contentTypes';
 import { LoadingState, ErrorState, EmptyState } from '../../../components/ui/LoadingState';
 import StatusBadge from '../../../components/ui/StatusBadge';
 import { useAuth } from '../../../context/AuthContext';
+import useConfirm from '../../../hooks/useConfirm';
 
 export default function ContentList() {
   const { type } = useParams();
@@ -12,6 +13,7 @@ export default function ContentList() {
   const navigate = useNavigate();
   const { hasRole } = useAuth();
   const canPublish = hasRole('editor', 'super_admin');
+  const { confirm, ConfirmDialog } = useConfirm();
 
   const [items, setItems] = useState(null);
   const [error, setError] = useState(false);
@@ -27,7 +29,8 @@ export default function ContentList() {
   useEffect(load, [type, statusFilter]);
 
   async function handleDelete(id) {
-    if (!window.confirm('Delete this item? This cannot be undone.')) return;
+    const ok = await confirm({ title: `Delete ${config.label}`, message: 'This item will be permanently removed. This cannot be undone.', confirmLabel: 'Delete', destructive: true });
+    if (!ok) return;
     await api.delete(`${config.endpoint}/${id}`);
     load();
   }
@@ -41,6 +44,7 @@ export default function ContentList() {
 
   return (
     <div>
+      {ConfirmDialog}
       <div className="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
         <div>
           <h1 className="h3 mb-0">{config.pluralLabel}</h1>

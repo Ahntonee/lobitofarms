@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import api from '../../api/client';
 import { LoadingState, EmptyState } from '../../components/ui/LoadingState';
 import { useAuth } from '../../context/AuthContext';
+import useConfirm from '../../hooks/useConfirm';
 
 const EMPTY = { name: '', role: '', quote: '', image: '', featured: false };
 
 export default function Testimonials() {
   const { hasRole } = useAuth();
   const canDelete = hasRole('editor', 'super_admin');
+  const { confirm, ConfirmDialog } = useConfirm();
   const [items, setItems] = useState(null);
   const [form, setForm] = useState(EMPTY);
   const [editingId, setEditingId] = useState(null);
@@ -41,13 +43,15 @@ export default function Testimonials() {
   }
 
   async function handleDelete(id) {
-    if (!window.confirm('Delete this testimonial?')) return;
+    const ok = await confirm({ title: 'Delete Testimonial', message: 'This testimonial will be permanently removed.', confirmLabel: 'Delete', destructive: true });
+    if (!ok) return;
     await api.delete(`/testimonials/${id}`);
     load();
   }
 
   return (
     <div>
+      {ConfirmDialog}
       <h1 className="h3 mb-4">Testimonials</h1>
       <div className="row g-4">
         <div className="col-12 col-lg-5">

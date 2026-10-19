@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import api from '../../../api/client';
 import { useAuth } from '../../../context/AuthContext';
+import useConfirm from '../../../hooks/useConfirm';
 
 export default function RevisionHistory({ endpoint, id, labelField, onRestored }) {
   const [revisions, setRevisions] = useState([]);
   const { hasRole } = useAuth();
   const canRestore = hasRole('editor', 'super_admin');
+  const { confirm, ConfirmDialog } = useConfirm();
 
   function load() {
     api.get(`${endpoint}/${id}/revisions`).then((res) => setRevisions(res.data)).catch(() => {});
@@ -14,7 +16,8 @@ export default function RevisionHistory({ endpoint, id, labelField, onRestored }
   useEffect(load, [endpoint, id]);
 
   async function handleRestore(index) {
-    if (!window.confirm('Restore this version? The current version will be saved to history first.')) return;
+    const ok = await confirm({ title: 'Restore Version', message: 'The current version will be saved to history first, then this version will be restored.', confirmLabel: 'Restore' });
+    if (!ok) return;
     await api.post(`${endpoint}/${id}/revisions/${index}/restore`);
     load();
     onRestored?.();
@@ -25,6 +28,8 @@ export default function RevisionHistory({ endpoint, id, labelField, onRestored }
   }
 
   return (
+    <>
+    {ConfirmDialog}
     <ul className="list-group">
       {revisions.map((rev, i) => (
         <li key={i} className="list-group-item d-flex justify-content-between align-items-center">
@@ -38,5 +43,6 @@ export default function RevisionHistory({ endpoint, id, labelField, onRestored }
         </li>
       ))}
     </ul>
+    </>
   );
 }

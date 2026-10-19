@@ -2,10 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import api from '../../api/client';
 import { LoadingState, EmptyState } from '../../components/ui/LoadingState';
 import { useAuth } from '../../context/AuthContext';
+import useConfirm from '../../hooks/useConfirm';
 
 export default function MediaLibrary() {
   const { hasRole } = useAuth();
   const canDelete = hasRole('editor', 'super_admin');
+  const { confirm, ConfirmDialog } = useConfirm();
   const [items, setItems] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [folder, setFolder] = useState('');
@@ -33,20 +35,22 @@ export default function MediaLibrary() {
   }
 
   async function handleDelete(item) {
-    if (!window.confirm(`Delete "${item.filename}"?`)) return;
+    const ok = await confirm({ title: 'Delete File', message: `"${item.filename}" will be permanently deleted.`, confirmLabel: 'Delete', destructive: true });
+    if (!ok) return;
     try {
       await api.delete(`/media/${item._id}`);
       load();
     } catch (err) {
-      if (err.response?.status === 409 && window.confirm('This file is used elsewhere. Delete anyway?')) {
-        await api.delete(`/media/${item._id}`, { params: { force: true } });
-        load();
+      if (err.response?.status === 409) {
+        const force = await confirm({ title: 'File In Use', message: 'This file is referenced elsewhere. Delete it anyway?', confirmLabel: 'Delete Anyway', destructive: true });
+        if (force) { await api.delete(`/media/${item._id}`, { params: { force: true } }); load(); }
       }
     }
   }
 
   return (
     <div>
+      {ConfirmDialog}
       <div className="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
         <h1 className="h3 mb-0">Media Library</h1>
         <div className="d-flex gap-2">
