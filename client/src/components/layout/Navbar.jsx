@@ -26,7 +26,7 @@ export default function Navbar() {
           <img
             src={settings.logo || '/images/lobito_logo.webp'}
             alt={settings.siteName || 'Lobito Farms'}
-            style={{ height: 56 }}
+            style={{ height: 70, clipPath: 'circle(46%)' }}
           />
         </NavLink>
         <button
