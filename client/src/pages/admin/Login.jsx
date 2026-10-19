@@ -2,6 +2,15 @@ import { useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
+function getGreeting() {
+  const h = new Date().getHours();
+  if (h >= 0 && h < 4)  return { line1: 'Hello, Night Owl!', line2: 'Welcome back — burning the midnight oil?' };
+  if (h >= 4 && h < 12) return { line1: 'Good Morning!', line2: 'Welcome back. Ready to manage today?' };
+  if (h >= 12 && h < 17) return { line1: 'Good Afternoon!', line2: 'Welcome back. Hope the day is going well.' };
+  if (h >= 17 && h < 21) return { line1: 'Good Evening!', line2: 'Welcome back. Wrapping things up?' };
+  return { line1: 'Good Night!', line2: 'Welcome back. Almost time to rest.' };
+}
+
 export default function Login() {
   const { login, user } = useAuth();
   const location = useLocation();
@@ -10,6 +19,7 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const greeting = getGreeting();
 
   if (user) {
     return <Navigate to={location.state?.from?.pathname || '/admin'} replace />;
@@ -92,13 +102,18 @@ export default function Login() {
         style={{ background: '#fff' }}
       >
         <div style={{ width: '100%', maxWidth: 400 }}>
-          {/* Mobile logo */}
-          <div className="d-flex d-lg-none justify-content-center mb-4">
-            <img src="/images/lobito_logo.webp" alt="Lobito Farms" style={{ height: 64, clipPath: 'circle(46%)' }} />
+          {/* Logo */}
+          <div className="d-flex justify-content-center mb-4">
+            <img src="/images/lobito_logo.webp" alt="Lobito Farms" style={{ height: 80, clipPath: 'circle(46%)' }} />
           </div>
 
-          <h1 style={{ fontSize: 28, fontWeight: 700, color: '#1a1a1a', marginBottom: 6 }}>Sign in</h1>
-          <p style={{ color: '#888', fontSize: 14, marginBottom: 32 }}>Enter your credentials to access the dashboard.</p>
+          {/* Dynamic greeting */}
+          <div className="text-center mb-4">
+            <h1 style={{ fontSize: 24, fontWeight: 700, color: '#1a1a1a', marginBottom: 4 }}>{greeting.line1}</h1>
+            <p style={{ color: '#888', fontSize: 14, margin: 0 }}>{greeting.line2}</p>
+          </div>
+
+          <hr style={{ borderColor: '#f0f0f0', marginBottom: 28 }} />
 
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
