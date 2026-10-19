@@ -1,8 +1,7 @@
-import { NavLink } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useSiteSettings } from '../../context/SiteSettingsContext';
 
-// Fallback shown only until site settings load (or if an admin clears the list) so the
-// navbar is never empty — the real, admin-editable list lives in Site Settings.
 const FALLBACK_LINKS = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
@@ -18,9 +17,29 @@ const FALLBACK_LINKS = [
 export default function Navbar() {
   const settings = useSiteSettings();
   const links = settings.navLinks?.length ? settings.navLinks : FALLBACK_LINKS;
+  const [open, setOpen] = useState(false);
+  const navRef = useRef(null);
+  const location = useLocation();
+
+  // Close on route change (link click)
+  useEffect(() => { setOpen(false); }, [location.pathname]);
+
+  // Close on outside click
+  useEffect(() => {
+    if (!open) return;
+    function handle(e) {
+      if (navRef.current && !navRef.current.contains(e.target)) setOpen(false);
+    }
+    document.addEventListener('mousedown', handle);
+    document.addEventListener('touchstart', handle);
+    return () => {
+      document.removeEventListener('mousedown', handle);
+      document.removeEventListener('touchstart', handle);
+    };
+  }, [open]);
 
   return (
-    <nav className="navbar navbar-expand-lg bg-white sticky-top shadow-sm py-3">
+    <nav ref={navRef} className="navbar navbar-expand-lg bg-white sticky-top shadow-sm py-3">
       <div className="container">
         <NavLink className="navbar-brand fs-4 d-flex align-items-center gap-2" to="/">
           <img
@@ -29,28 +48,38 @@ export default function Navbar() {
             style={{ height: 70, clipPath: 'circle(46%)' }}
           />
         </NavLink>
+
         <button
-          className="navbar-toggler"
+          className={`navbar-toggler${open ? '' : ' collapsed'}`}
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#mainNav"
           aria-controls="mainNav"
-          aria-expanded="false"
+          aria-expanded={open}
           aria-label="Toggle navigation"
+          onClick={() => setOpen((o) => !o)}
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <div className="collapse navbar-collapse" id="mainNav">
+
+        <div className={`collapse navbar-collapse${open ? ' show' : ''}`} id="mainNav">
           <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-2">
             {links.map((link) => (
               <li className="nav-item" key={link.path}>
-                <NavLink to={link.path} end={link.path === '/'} className="nav-link">
+                <NavLink
+                  to={link.path}
+                  end={link.path === '/'}
+                  className="nav-link"
+                  onClick={() => setOpen(false)}
+                >
                   {link.label}
                 </NavLink>
               </li>
             ))}
             <li className="nav-item ms-lg-2 mt-2 mt-lg-0">
-              <NavLink to="/ngo/donate" className="btn btn-accent btn-sm w-100">
+              <NavLink
+                to="/ngo/donate"
+                className="btn btn-accent btn-sm w-100"
+                onClick={() => setOpen(false)}
+              >
                 Donate
               </NavLink>
             </li>
