@@ -23,11 +23,11 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg bg-white sticky-top shadow-sm py-3">
       <div className="container">
         <NavLink className="navbar-brand fs-4 d-flex align-items-center gap-2" to="/">
-          {settings.logo ? (
-            <img src={settings.logo} alt={settings.siteName || 'Lobito Farms'} style={{ height: 56 }} />
-          ) : (
-            settings.siteName || 'Lobito Farms'
-          )}
+          <img
+            src={settings.logo || '/images/lobito_logo.webp'}
+            alt={settings.siteName || 'Lobito Farms'}
+            style={{ height: 56 }}
+          />
         </NavLink>
         <button
           className="navbar-toggler"
