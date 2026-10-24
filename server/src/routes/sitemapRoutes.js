@@ -11,7 +11,8 @@ const router = express.Router();
 router.get(
   '/sitemap.xml',
   asyncHandler(async (req, res) => {
-    const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+    // CLIENT_URL may be a comma-separated list (apex + www); the first entry is canonical.
+    const clientUrl = (process.env.CLIENT_URL || 'http://localhost:5173').split(',')[0].trim().replace(/\/$/, '');
     const sections = [
       { model: Crop, prefix: '/crops' },
       { model: Product, prefix: '/products' },
