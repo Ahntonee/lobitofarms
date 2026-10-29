@@ -53,6 +53,7 @@ const IMG = {
 
 const CROP_IMAGES = {
   cocoa: [IMG.cocoaPods, IMG.cocoaHarvest],
+  'oil-palm': [IMG.farmersWorkingGreenField, IMG.farmerInspectingField2],
   plantain: [IMG.bananaPlantation, IMG.plantainFarmer],
   cashew: [IMG.cashewTree, IMG.cashewFruit],
   coffee: [IMG.coffeeBerries, IMG.coffeeHarvestWomen],
@@ -61,6 +62,8 @@ const CROP_IMAGES = {
 const PRODUCT_IMAGES = {
   'Premium Fermented Cocoa Beans': IMG.cocoaBeansDryingGhana,
   'Cocoa Butter (Bulk)': IMG.cocoaBeansDrySunlight,
+  'Crude Palm Oil (CPO)': IMG.farmersWorkingGreenField,
+  'Palm Kernel Oil & Kernels': IMG.farmerInspectingField2,
   'Green Export Plantain': IMG.plantainMarketNigeria,
   'Raw Cashew Nuts (RCN)': IMG.rawCashewHand,
   'Cashew Kernels W320': IMG.cashewKernelsBowl,
@@ -124,6 +127,15 @@ async function seed() {
       exportGrade: 'Grade I, Fair Trade certified',
     },
     {
+      name: 'Oil Palm',
+      slug: 'oil-palm',
+      category: 'Cash Crop',
+      description:
+        'Fresh fruit bunches harvested from well-managed oil palm plantations and cooperative outgrower plots, processed promptly to deliver high-quality crude palm oil and kernels for international buyers.',
+      season: 'Year-round, peak Mar - Jul',
+      exportGrade: 'RSPO-aligned, low FFA grades',
+    },
+    {
       name: 'Plantain',
       slug: 'plantain',
       category: 'Staple Crop',
@@ -169,6 +181,8 @@ async function seed() {
   const productDefs = [
     { name: 'Premium Fermented Cocoa Beans', crop: 'cocoa', moq: '1 container (24 MT)', packaging: '60kg jute bags' },
     { name: 'Cocoa Butter (Bulk)', crop: 'cocoa', moq: '5 MT', packaging: '25kg cartons' },
+    { name: 'Crude Palm Oil (CPO)', crop: 'oil-palm', moq: '1 flexitank (20 MT)', packaging: 'Food-grade flexitanks' },
+    { name: 'Palm Kernel Oil & Kernels', crop: 'oil-palm', moq: '5 MT', packaging: '50kg PP bags / drums' },
     { name: 'Green Export Plantain', crop: 'plantain', moq: '18 MT pallet load', packaging: 'Ventilated cartons' },
     { name: 'Raw Cashew Nuts (RCN)', crop: 'cashew', moq: '1 container (20 MT)', packaging: '80kg polypropylene bags' },
     { name: 'Cashew Kernels W320', crop: 'cashew', moq: '2 MT', packaging: 'Vacuum-sealed 22.68kg tins' },
@@ -351,7 +365,7 @@ async function seed() {
         type: 'hero',
         order: 0,
         config: {
-          heading: 'Growing Cocoa, Plantain & Cashew — Growing Communities',
+          heading: 'Growing Cocoa, Oil Palm, Plantain & Cashew — Growing Communities',
           subheading:
             'Lobito Farms exports premium cash crops while investing in the farming communities that make it possible.',
           image: PEXELS(IMG.ruralLandscapeFarmers, 1600, 900),
@@ -405,8 +419,8 @@ async function seed() {
       },
     ],
     seo: {
-      metaTitle: 'Lobito Farms | Cocoa, Plantain & Cashew Exporter and Foundation',
-      metaDescription: 'Lobito Farms exports premium cocoa, plantain, cashew and coffee while investing in the farming communities that make it possible.',
+      metaTitle: 'Lobito Farms | Cocoa, Oil Palm, Plantain & Cashew Exporter and Foundation',
+      metaDescription: 'Lobito Farms exports premium cocoa, oil palm, plantain, cashew and coffee while investing in the farming communities that make it possible.',
     },
     createdBy: superAdmin._id,
     updatedBy: superAdmin._id,
@@ -423,7 +437,7 @@ async function seed() {
         order: 0,
         config: {
           heading: 'Three Generations of Growing Well',
-          body: '<p>Lobito Farms started as a single cocoa smallholding and has grown into a cooperative-backed exporter of cocoa, plantain, cashew, and coffee. We still farm the way we started: hands-on, close to the soil, and close to the communities who work it with us.</p><p>Today we work with over 5,000 farmers across our growing region, combining export-grade quality control with a foundation that reinvests in the villages our supply chain depends on.</p>',
+          body: '<p>Lobito Farms started as a single cocoa smallholding and has grown into a cooperative-backed exporter of cocoa, oil palm, plantain, cashew, and coffee. We still farm the way we started: hands-on, close to the soil, and close to the communities who work it with us.</p><p>Today we work with over 5,000 farmers across our growing region, combining export-grade quality control with a foundation that reinvests in the villages our supply chain depends on.</p>',
           image: PEXELS(IMG.elderlyFarmerField, 900, 700),
           imagePosition: 'right',
         },
@@ -462,7 +476,7 @@ async function seed() {
     ],
     seo: {
       metaTitle: 'About Us | Lobito Farms',
-      metaDescription: 'Three generations of growing cocoa, plantain, cashew and coffee — and the cooperative of 5,000+ farmers behind it.',
+      metaDescription: 'Three generations of growing cocoa, oil palm, plantain, cashew and coffee — and the cooperative of 5,000+ farmers behind it.',
     },
     createdBy: superAdmin._id,
     updatedBy: superAdmin._id,
@@ -530,14 +544,14 @@ async function seed() {
     {
       slug: 'crops',
       title: 'Our Crops',
-      metaDescription: 'Cocoa, plantain, cashew, and coffee — grown, processed, and quality-checked for export by Lobito Farms.',
-      header: { eyebrow: 'What We Grow', title: 'Our Crops', subtitle: 'Cocoa, plantain, cashew, and coffee — grown, processed, and quality-checked for export.' },
+      metaDescription: 'Cocoa, oil palm, plantain, cashew, and coffee — grown, processed, and quality-checked for export by Lobito Farms.',
+      header: { eyebrow: 'What We Grow', title: 'Our Crops', subtitle: 'Cocoa, oil palm, plantain, cashew, and coffee — grown, processed, and quality-checked for export.' },
     },
     {
       slug: 'products',
       title: 'Products',
-      metaDescription: 'Export-ready cocoa, cashew, plantain, and coffee products with grading, packaging, and MOQ details.',
-      header: { eyebrow: 'Export Catalog', title: 'Products', subtitle: 'Export-ready cocoa, cashew, plantain, and coffee products with grading, packaging, and MOQ details.' },
+      metaDescription: 'Export-ready cocoa, oil palm, cashew, plantain, and coffee products with grading, packaging, and MOQ details.',
+      header: { eyebrow: 'Export Catalog', title: 'Products', subtitle: 'Export-ready cocoa, oil palm, cashew, plantain, and coffee products with grading, packaging, and MOQ details.' },
     },
     {
       slug: 'blog',
@@ -560,7 +574,7 @@ async function seed() {
     {
       slug: 'shop',
       title: 'Shop',
-      metaDescription: 'Order or pre-order bulk cocoa, cashew, plantain, and coffee directly from Lobito Farms.',
+      metaDescription: 'Order or pre-order bulk cocoa, oil palm, cashew, plantain, and coffee directly from Lobito Farms.',
       header: { eyebrow: 'Bulk Orders', title: 'Shop', subtitle: 'Select the products and quantities you need — our export team will follow up to confirm pricing and logistics.' },
     },
     {
@@ -619,7 +633,7 @@ async function seed() {
     contactPhone: '+233 20 000 0000',
     address: 'Lobito River Valley, West Africa',
     social: { facebook: '#', instagram: '#', twitter: '#', linkedin: '#' },
-    footerText: `Lobito Farms — sustainably grown cocoa, plantain, cashew and coffee, with a foundation reinvesting in farming communities.`,
+    footerText: `Lobito Farms — sustainably grown cocoa, oil palm, plantain, cashew and coffee, with a foundation reinvesting in farming communities.`,
     theme: { primaryColor: '#2f5233', accentColor: '#c98a3a' },
     navLinks: [
       { label: 'Home', path: '/' },

@@ -1,6 +1,6 @@
 # Lobito Farms
 
-Full-stack marketing site + NGO hub for a fictional cocoa/plantain/cashew/coffee exporter, with
+Full-stack marketing site + NGO hub for a fictional cocoa/oil palm/plantain/cashew/coffee exporter, with
 a custom CMS admin so non-developers can edit copy, images, and page layout without touching code.
 
 - **`server/`** — Node.js/Express API, MongoDB (Mongoose), JWT auth, role-based permissions,

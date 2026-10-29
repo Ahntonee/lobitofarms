@@ -24,6 +24,29 @@
       "__v": 0
     },
     {
+      "_id": "6ac0d62a2698b06b6a4ff850",
+      "name": "Oil Palm",
+      "slug": "oil-palm",
+      "category": "Cash Crop",
+      "description": "Fresh fruit bunches harvested from well-managed oil palm plantations and cooperative outgrower plots, processed promptly to deliver high-quality crude palm oil and kernels for international buyers.",
+      "images": [
+        "https://images.pexels.com/photos/31472079/pexels-photo-31472079.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+        "https://images.pexels.com/photos/34411687/pexels-photo-34411687.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      ],
+      "season": "Year-round, peak Mar - Jul",
+      "exportGrade": "RSPO-aligned, low FFA grades",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Oil Palm | Lobito Farms",
+        "metaDescription": "Fresh fruit bunches harvested from well-managed oil palm plantations and cooperative outgrower plots, processed promptly to deliver high-quality crude palm"
+      },
+      "createdBy": "6ac0d6292698b06b6a4ff82d",
+      "updatedBy": "6ac0d6292698b06b6a4ff82d",
+      "createdAt": "2026-10-03T10:17:14.163Z",
+      "updatedAt": "2026-10-03T10:17:14.163Z",
+      "__v": 0
+    },
+    {
       "_id": "6ac0d62a2698b06b6a4ff835",
       "name": "Cashew",
       "slug": "cashew",
@@ -210,6 +233,52 @@
       "__v": 0
     },
     {
+      "_id": "6ac0d62a2698b06b6a4ff851",
+      "name": "Crude Palm Oil (CPO)",
+      "slug": "crude-palm-oil-cpo",
+      "crop": "6ac0d62a2698b06b6a4ff850",
+      "description": "Crude Palm Oil (CPO) sourced directly from Lobito Farms' network of cooperative growers, quality-checked and export-ready.",
+      "images": [
+        "https://images.pexels.com/photos/31472079/pexels-photo-31472079.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      ],
+      "specs": "Moisture content, defect count, and grading available on request.",
+      "moq": "1 flexitank (20 MT)",
+      "packaging": "Food-grade flexitanks",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Crude Palm Oil (CPO) | Lobito Farms",
+        "metaDescription": "Crude Palm Oil (CPO) sourced directly from Lobito Farms' network of cooperative growers, quality-checked and export-ready. MOQ 1 flexitank (20 MT)."
+      },
+      "createdBy": "6ac0d62a2698b06b6a4ff82f",
+      "updatedBy": "6ac0d62a2698b06b6a4ff82f",
+      "createdAt": "2026-10-03T10:17:14.190Z",
+      "updatedAt": "2026-10-03T10:17:14.190Z",
+      "__v": 0
+    },
+    {
+      "_id": "6ac0d62a2698b06b6a4ff852",
+      "name": "Palm Kernel Oil & Kernels",
+      "slug": "palm-kernel-oil-and-kernels",
+      "crop": "6ac0d62a2698b06b6a4ff850",
+      "description": "Palm Kernel Oil & Kernels sourced directly from Lobito Farms' network of cooperative growers, quality-checked and export-ready.",
+      "images": [
+        "https://images.pexels.com/photos/34411687/pexels-photo-34411687.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      ],
+      "specs": "Moisture content, defect count, and grading available on request.",
+      "moq": "5 MT",
+      "packaging": "50kg PP bags / drums",
+      "status": "published",
+      "seo": {
+        "metaTitle": "Palm Kernel Oil & Kernels | Lobito Farms",
+        "metaDescription": "Palm Kernel Oil & Kernels sourced directly from Lobito Farms' network of cooperative growers, quality-checked and export-ready. MOQ 5 MT."
+      },
+      "createdBy": "6ac0d62a2698b06b6a4ff82f",
+      "updatedBy": "6ac0d62a2698b06b6a4ff82f",
+      "createdAt": "2026-10-03T10:17:14.190Z",
+      "updatedAt": "2026-10-03T10:17:14.190Z",
+      "__v": 0
+    },
+    {
       "_id": "6ac0d62a2698b06b6a4ff83b",
       "name": "Premium Fermented Cocoa Beans",
       "slug": "premium-fermented-cocoa-beans",
@@ -363,7 +432,7 @@
           "type": "hero",
           "order": 0,
           "config": {
-            "heading": "Growing Cocoa, Plantain & Cashew — Growing Communities",
+            "heading": "Growing Cocoa, Oil Palm, Plantain & Cashew — Growing Communities",
             "subheading": "Lobito Farms exports premium cash crops while investing in the farming communities that make it possible.",
             "image": "https://images.pexels.com/photos/30801781/pexels-photo-30801781.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&fit=crop",
             "primaryCta": {
@@ -446,8 +515,8 @@
       ],
       "status": "published",
       "seo": {
-        "metaTitle": "Lobito Farms | Cocoa, Plantain & Cashew Exporter and Foundation",
-        "metaDescription": "Lobito Farms exports premium cocoa, plantain, cashew and coffee while investing in the farming communities that make it possible."
+        "metaTitle": "Lobito Farms | Cocoa, Oil Palm, Plantain & Cashew Exporter and Foundation",
+        "metaDescription": "Lobito Farms exports premium cocoa, oil palm, plantain, cashew and coffee while investing in the farming communities that make it possible."
       },
       "createdBy": "6ac0d6292698b06b6a4ff82d",
       "updatedBy": "6ac0d6292698b06b6a4ff82d",
@@ -465,7 +534,7 @@
           "order": 0,
           "config": {
             "heading": "Three Generations of Growing Well",
-            "body": "<p>Lobito Farms started as a single cocoa smallholding and has grown into a cooperative-backed exporter of cocoa, plantain, cashew, and coffee. We still farm the way we started: hands-on, close to the soil, and close to the communities who work it with us.</p><p>Today we work with over 5,000 farmers across our growing region, combining export-grade quality control with a foundation that reinvests in the villages our supply chain depends on.</p>",
+            "body": "<p>Lobito Farms started as a single cocoa smallholding and has grown into a cooperative-backed exporter of cocoa, oil palm, plantain, cashew, and coffee. We still farm the way we started: hands-on, close to the soil, and close to the communities who work it with us.</p><p>Today we work with over 5,000 farmers across our growing region, combining export-grade quality control with a foundation that reinvests in the villages our supply chain depends on.</p>",
             "image": "https://images.pexels.com/photos/38839544/pexels-photo-38839544.jpeg?auto=compress&cs=tinysrgb&w=900&h=700&fit=crop",
             "imagePosition": "right"
           },
@@ -524,7 +593,7 @@
       "status": "published",
       "seo": {
         "metaTitle": "About Us | Lobito Farms",
-        "metaDescription": "Three generations of growing cocoa, plantain, cashew and coffee — and the cooperative of 5,000+ farmers behind it."
+        "metaDescription": "Three generations of growing cocoa, oil palm, plantain, cashew and coffee — and the cooperative of 5,000+ farmers behind it."
       },
       "createdBy": "6ac0d6292698b06b6a4ff82d",
       "updatedBy": "6ac0d6292698b06b6a4ff82d",
@@ -635,7 +704,7 @@
           "config": {
             "eyebrow": "What We Grow",
             "title": "Our Crops",
-            "subtitle": "Cocoa, plantain, cashew, and coffee — grown, processed, and quality-checked for export."
+            "subtitle": "Cocoa, oil palm, plantain, cashew, and coffee — grown, processed, and quality-checked for export."
           },
           "_id": "6ac0d62a2698b06b6a4ff873"
         }
@@ -643,7 +712,7 @@
       "status": "published",
       "seo": {
         "metaTitle": "Our Crops | Lobito Farms",
-        "metaDescription": "Cocoa, plantain, cashew, and coffee — grown, processed, and quality-checked for export by Lobito Farms."
+        "metaDescription": "Cocoa, oil palm, plantain, cashew, and coffee — grown, processed, and quality-checked for export by Lobito Farms."
       },
       "createdBy": "6ac0d6292698b06b6a4ff82d",
       "updatedBy": "6ac0d6292698b06b6a4ff82d",
@@ -662,7 +731,7 @@
           "config": {
             "eyebrow": "Export Catalog",
             "title": "Products",
-            "subtitle": "Export-ready cocoa, cashew, plantain, and coffee products with grading, packaging, and MOQ details."
+            "subtitle": "Export-ready cocoa, oil palm, cashew, plantain, and coffee products with grading, packaging, and MOQ details."
           },
           "_id": "6ac0d62a2698b06b6a4ff876"
         }
@@ -670,7 +739,7 @@
       "status": "published",
       "seo": {
         "metaTitle": "Products | Lobito Farms",
-        "metaDescription": "Export-ready cocoa, cashew, plantain, and coffee products with grading, packaging, and MOQ details."
+        "metaDescription": "Export-ready cocoa, oil palm, cashew, plantain, and coffee products with grading, packaging, and MOQ details."
       },
       "createdBy": "6ac0d6292698b06b6a4ff82d",
       "updatedBy": "6ac0d6292698b06b6a4ff82d",
@@ -778,7 +847,7 @@
       "status": "published",
       "seo": {
         "metaTitle": "Shop | Lobito Farms",
-        "metaDescription": "Order or pre-order bulk cocoa, cashew, plantain, and coffee directly from Lobito Farms."
+        "metaDescription": "Order or pre-order bulk cocoa, oil palm, cashew, plantain, and coffee directly from Lobito Farms."
       },
       "createdBy": "6ac0d6292698b06b6a4ff82d",
       "updatedBy": "6ac0d6292698b06b6a4ff82d",
@@ -874,7 +943,7 @@
     "contactEmail": "hello@lobitofarms.com",
     "contactPhone": "+233 20 000 0000",
     "address": "Lobito River Valley, West Africa",
-    "footerText": "Lobito Farms — sustainably grown cocoa, plantain, cashew and coffee, with a foundation reinvesting in farming communities.",
+    "footerText": "Lobito Farms — sustainably grown cocoa, oil palm, plantain, cashew and coffee, with a foundation reinvesting in farming communities.",
     "navLinks": [
       {
         "label": "Home",
