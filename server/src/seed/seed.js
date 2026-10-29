@@ -363,10 +363,10 @@ async function seed() {
         order: 1,
         config: {
           stats: [
-            { label: 'Farmers Supported', value: 5200 },
-            { label: 'Hectares Cultivated', value: 3100 },
-            { label: 'Tons Exported / Year', value: 8600 },
-            { label: 'Active NGO Programs', value: 4 },
+            { label: 'Farmers Supported', value: 0 },
+            { label: 'Hectares Cultivated', value: 0 },
+            { label: 'Tons Exported / Year', value: 0 },
+            { label: 'Active NGO Programs', value: 0 },
           ],
         },
       },
