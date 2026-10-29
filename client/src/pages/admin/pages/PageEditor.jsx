@@ -100,10 +100,14 @@ export default function PageEditor() {
           <div className="d-flex flex-column gap-3">
             {sortedBlocks.length === 0 && <p className="text-muted-warm">No blocks yet — add one below.</p>}
             {sortedBlocks.map((block, i) => (
-              <div key={block._id || i} className="card border-0 shadow-sm p-3">
+              <div key={block._id || i} className="card border-0 shadow-sm p-3" style={block.config?.hidden ? { opacity: 0.6 } : undefined}>
                 <div className="d-flex justify-content-between align-items-center mb-2">
-                  <strong>{BLOCK_LABELS[block.type] || block.type}</strong>
+                  <strong>
+                    {BLOCK_LABELS[block.type] || block.type}
+                    {block.config?.hidden && <span className="badge text-bg-secondary ms-2">Hidden on live site</span>}
+                  </strong>
                   <div className="d-flex gap-1">
+                    <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => updateBlockConfig(i, { ...(block.config || {}), hidden: !block.config?.hidden })}>{block.config?.hidden ? 'Show' : 'Hide'}</button>
                     <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => moveBlock(i, -1)} disabled={i === 0}>↑</button>
                     <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => moveBlock(i, 1)} disabled={i === sortedBlocks.length - 1}>↓</button>
                     <button type="button" className="btn btn-sm btn-outline-danger" onClick={() => removeBlock(i)}>Remove</button>

@@ -28,7 +28,7 @@ export default function BlockRenderer({ blocks = [] }) {
     <>
       {sorted.map((block) => {
         const Component = BLOCK_COMPONENTS[block.type];
-        if (!Component) return null;
+        if (!Component || block.config?.hidden) return null;
         return <Component key={block._id || block.order} config={block.config} />;
       })}
     </>
