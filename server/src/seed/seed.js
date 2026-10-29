@@ -404,7 +404,7 @@ async function seed() {
       },
     ],
     seo: {
-      metaTitle: 'Lobito Farms | Cocoa, Oil Palm, Plantain & Cashew Exporter and Foundation',
+      metaTitle: 'Lobito Farms | Cocoa, Oil Palm, Plantain & Cashew Exporter',
       metaDescription: 'Lobito Farms exports premium cocoa, oil palm, plantain and cashew while investing in the farming communities that make it possible.',
     },
     createdBy: superAdmin._id,
