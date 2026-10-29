@@ -30,8 +30,7 @@
       "category": "Cash Crop",
       "description": "Fresh fruit bunches harvested from well-managed oil palm plantations and cooperative outgrower plots, processed promptly to deliver high-quality crude palm oil and kernels for international buyers.",
       "images": [
-        "https://images.pexels.com/photos/31472079/pexels-photo-31472079.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-        "https://images.pexels.com/photos/34411687/pexels-photo-34411687.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+        "/images/oil-palm.jpeg"
       ],
       "season": "Year-round, peak Mar - Jul",
       "exportGrade": "RSPO-aligned, low FFA grades",
@@ -193,7 +192,7 @@
       "crop": "6ac0d62a2698b06b6a4ff850",
       "description": "Crude Palm Oil (CPO) sourced directly from Lobito Farms' network of cooperative growers, quality-checked and export-ready.",
       "images": [
-        "https://images.pexels.com/photos/31472079/pexels-photo-31472079.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+        "/images/oil-palm.jpeg"
       ],
       "specs": "Moisture content, defect count, and grading available on request.",
       "moq": "1 flexitank (20 MT)",
@@ -216,7 +215,7 @@
       "crop": "6ac0d62a2698b06b6a4ff850",
       "description": "Palm Kernel Oil & Kernels sourced directly from Lobito Farms' network of cooperative growers, quality-checked and export-ready.",
       "images": [
-        "https://images.pexels.com/photos/34411687/pexels-photo-34411687.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+        "/images/oil-palm.jpeg"
       ],
       "specs": "Moisture content, defect count, and grading available on request.",
       "moq": "5 MT",

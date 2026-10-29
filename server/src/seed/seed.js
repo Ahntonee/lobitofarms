@@ -50,7 +50,7 @@ const IMG = {
 
 const CROP_IMAGES = {
   cocoa: [IMG.cocoaPods, IMG.cocoaHarvest],
-  'oil-palm': [IMG.farmersWorkingGreenField, IMG.farmerInspectingField2],
+  'oil-palm': ['/images/oil-palm.jpeg'],
   plantain: [IMG.bananaPlantation, IMG.plantainFarmer],
   cashew: [IMG.cashewTree, IMG.cashewFruit],
 };
@@ -58,8 +58,8 @@ const CROP_IMAGES = {
 const PRODUCT_IMAGES = {
   'Premium Fermented Cocoa Beans': IMG.cocoaBeansDryingGhana,
   'Cocoa Butter (Bulk)': IMG.cocoaBeansDrySunlight,
-  'Crude Palm Oil (CPO)': IMG.farmersWorkingGreenField,
-  'Palm Kernel Oil & Kernels': IMG.farmerInspectingField2,
+  'Crude Palm Oil (CPO)': '/images/oil-palm.jpeg',
+  'Palm Kernel Oil & Kernels': '/images/oil-palm.jpeg',
   'Green Export Plantain': IMG.plantainMarketNigeria,
   'Raw Cashew Nuts (RCN)': IMG.rawCashewHand,
   'Cashew Kernels W320': IMG.cashewKernelsBowl,
@@ -154,7 +154,7 @@ async function seed() {
     cropDefs.map((c, i) =>
       Crop.create({
         ...c,
-        images: CROP_IMAGES[c.slug].map((id) => PEXELS(id, 800, 600)),
+        images: CROP_IMAGES[c.slug].map((id) => (typeof id === 'string' ? id : PEXELS(id, 800, 600))),
         status: 'published',
         seo: { metaTitle: `${c.name} | Lobito Farms`, metaDescription: c.description.slice(0, 155) },
         createdBy: superAdmin._id,
@@ -181,7 +181,7 @@ async function seed() {
       slug: p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
       crop: crop._id,
       description: `${p.name} sourced directly from Lobito Farms' network of cooperative growers, quality-checked and export-ready.`,
-      images: [PEXELS(PRODUCT_IMAGES[p.name], 800, 600)],
+      images: [typeof PRODUCT_IMAGES[p.name] === 'string' ? PRODUCT_IMAGES[p.name] : PEXELS(PRODUCT_IMAGES[p.name], 800, 600)],
       specs: 'Moisture content, defect count, and grading available on request.',
       moq: p.moq,
       packaging: p.packaging,
