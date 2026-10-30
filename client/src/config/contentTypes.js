@@ -48,6 +48,7 @@ export const CONTENT_TYPES = {
       { name: 'excerpt', label: 'Excerpt', type: 'textarea' },
       { name: 'coverImage', label: 'Cover Image', type: 'images', single: true },
       { name: 'body', label: 'Body', type: 'richtext' },
+      { name: 'images', label: 'More Images (add as many as you like)', type: 'images' },
       { name: 'category', label: 'Category', type: 'text' },
       { name: 'tags', label: 'Tags (comma-separated)', type: 'tags' },
       { name: 'publishAt', label: 'Scheduled Publish Time', type: 'datetime' },

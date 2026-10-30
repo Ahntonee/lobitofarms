@@ -42,6 +42,15 @@ export default function BlogPostDetail() {
             </div>
             {post.coverImage && <img src={post.coverImage} alt={post.title} className="rounded-4 w-100 mb-4" style={{ maxHeight: 420, objectFit: 'cover' }} />}
             <div className="fs-6" dangerouslySetInnerHTML={{ __html: post.body }} />
+            {post.images?.length > 0 && (
+              <div className="row g-3 mt-3">
+                {post.images.map((src, i) => (
+                  <div key={src + i} className={post.images.length === 1 ? 'col-12' : 'col-12 col-md-6'}>
+                    <img src={src} alt={`${post.title} ${i + 1}`} className="rounded-4 w-100" style={{ maxHeight: 360, objectFit: 'cover' }} loading="lazy" />
+                  </div>
+                ))}
+              </div>
+            )}
             {post.tags?.length > 0 && (
               <div className="d-flex flex-wrap gap-2 mt-4">
                 {post.tags.map((tag) => (

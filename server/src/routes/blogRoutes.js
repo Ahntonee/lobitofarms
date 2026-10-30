@@ -7,7 +7,7 @@ const controller = createContentController({
   entityType: 'BlogPost',
   labelField: 'title',
   editableFields: [
-    'title', 'slug', 'body', 'excerpt', 'coverImage', 'tags', 'category', 'status', 'publishAt', 'seo',
+    'title', 'slug', 'body', 'excerpt', 'coverImage', 'images', 'tags', 'category', 'status', 'publishAt', 'seo',
   ],
 });
 
