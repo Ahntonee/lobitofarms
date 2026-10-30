@@ -7,6 +7,26 @@ import { LoadingState, ErrorState } from '../../../components/ui/LoadingState';
 import { useAuth } from '../../../context/AuthContext';
 import RevisionHistory from './RevisionHistory';
 
+// Single-image fields are stored as a plain string server-side but edited as an array by ImagePicker.
+function toFormShape(config, data) {
+  const out = { ...data };
+  config.fields.forEach((f) => {
+    if (f.type === 'images' && f.single) {
+      const v = out[f.name];
+      out[f.name] = Array.isArray(v) ? v : v ? [v] : [];
+    }
+  });
+  return out;
+}
+
+function toApiShape(config, form) {
+  const out = { ...form };
+  config.fields.forEach((f) => {
+    if (f.type === 'images' && f.single) out[f.name] = Array.isArray(out[f.name]) ? out[f.name][0] || '' : out[f.name] || '';
+  });
+  return out;
+}
+
 function emptyForm(config) {
   const form = { status: 'draft', seo: { metaTitle: '', metaDescription: '', ogImage: '' } };
   config.fields.forEach((f) => {
@@ -36,7 +56,7 @@ export default function ContentEditor() {
     setError(false);
     api
       .get(`${config.endpoint}/${id}`)
-      .then((res) => setForm({ ...emptyForm(config), ...res.data, seo: { ...emptyForm(config).seo, ...res.data.seo } }))
+      .then((res) => setForm({ ...emptyForm(config), ...toFormShape(config, res.data), seo: { ...emptyForm(config).seo, ...res.data.seo } }))
       .catch(() => setError(true))
       .finally(() => setLoading(false));
   }
@@ -53,11 +73,11 @@ export default function ContentEditor() {
     setSaveError('');
     try {
       if (isNew) {
-        const res = await api.post(config.endpoint, form);
+        const res = await api.post(config.endpoint, toApiShape(config, form));
         navigate(`/admin/content/${type}/${res.data._id}`, { replace: true });
       } else {
-        const res = await api.put(`${config.endpoint}/${id}`, form);
-        setForm({ ...emptyForm(config), ...res.data, seo: { ...emptyForm(config).seo, ...res.data.seo } });
+        const res = await api.put(`${config.endpoint}/${id}`, toApiShape(config, form));
+        setForm({ ...emptyForm(config), ...toFormShape(config, res.data), seo: { ...emptyForm(config).seo, ...res.data.seo } });
         setRevisionKey((k) => k + 1);
       }
     } catch (err) {
