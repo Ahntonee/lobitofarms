@@ -55,7 +55,7 @@ export default function FieldInput({ field, value, onChange }) {
             id={id}
             type="datetime-local"
             className="form-control"
-            value={value ? new Date(value).toISOString().slice(0, 16) : ''}
+            value={value ? new Date(new Date(value).getTime() - new Date(value).getTimezoneOffset() * 60000).toISOString().slice(0, 16) : ''}
             onChange={(e) => onChange(e.target.value ? new Date(e.target.value).toISOString() : null)}
           />
         </div>

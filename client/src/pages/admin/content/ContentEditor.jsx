@@ -67,16 +67,27 @@ export default function ContentEditor() {
     setForm((f) => ({ ...f, [name]: value }));
   }
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  const supportsSchedule = config?.fields.some((f) => f.name === 'publishAt');
+  const isPublished = form.status === 'published';
+  const scheduledFor = supportsSchedule && !isPublished && form.publishAt && new Date(form.publishAt) > new Date() ? new Date(form.publishAt) : null;
+
+  async function save(overrides = {}) {
+    if (overrides.schedule) {
+      if (!form.publishAt || new Date(form.publishAt) <= new Date()) {
+        setSaveError('Pick a publish date and time in the future, then click Schedule.');
+        return;
+      }
+      delete overrides.schedule;
+    }
+    const payload = { ...form, ...overrides };
     setSaving(true);
     setSaveError('');
     try {
       if (isNew) {
-        const res = await api.post(config.endpoint, toApiShape(config, form));
+        const res = await api.post(config.endpoint, toApiShape(config, payload));
         navigate(`/admin/content/${type}/${res.data._id}`, { replace: true });
       } else {
-        const res = await api.put(`${config.endpoint}/${id}`, toApiShape(config, form));
+        const res = await api.put(`${config.endpoint}/${id}`, toApiShape(config, payload));
         setForm({ ...emptyForm(config), ...toFormShape(config, res.data), seo: { ...emptyForm(config).seo, ...res.data.seo } });
         setRevisionKey((k) => k + 1);
       }
@@ -102,7 +113,7 @@ export default function ContentEditor() {
 
       <div className="row g-4">
         <div className="col-12 col-lg-8">
-          <form onSubmit={handleSubmit} className="card border-0 shadow-sm p-4">
+          <form onSubmit={(e) => e.preventDefault()} className="card border-0 shadow-sm p-4">
             {config.fields.map((field) => (
               <FieldInput key={field.name} field={field} value={form[field.name]} onChange={(v) => updateField(field.name, v)} />
             ))}
@@ -119,29 +130,45 @@ export default function ContentEditor() {
             </div>
 
             {saveError && <div className="alert alert-danger py-2">{saveError}</div>}
-            <button type="submit" className="btn btn-primary" disabled={saving}>
-              {saving ? 'Saving…' : 'Save'}
-            </button>
+            <div className="d-flex flex-wrap gap-2">
+              <button type="button" className="btn btn-outline-secondary" disabled={saving} onClick={() => save({ status: 'draft' })}>
+                {saving ? 'Saving…' : 'Save as Draft'}
+              </button>
+              {canPublish && (
+                <button type="button" className="btn btn-primary" disabled={saving} onClick={() => save({ status: 'published', publishAt: null })}>
+                  {isPublished ? 'Update Published' : 'Publish Now'}
+                </button>
+              )}
+              {canPublish && supportsSchedule && (
+                <button type="button" className="btn btn-outline-primary" disabled={saving} onClick={() => save({ status: 'draft', schedule: true })}>
+                  Schedule
+                </button>
+              )}
+            </div>
+            {supportsSchedule && canPublish && (
+              <p className="small text-muted-warm mt-2 mb-0">To schedule: set the Scheduled Publish Time above, then click Schedule. It publishes automatically within a minute of that time.</p>
+            )}
           </form>
         </div>
 
         <div className="col-12 col-lg-4">
           <div className="card border-0 shadow-sm p-4 mb-4">
             <h2 className="h6">Status</h2>
-            <select
-              className="form-select mb-2"
-              value={form.status}
-              disabled={!canPublish && form.status === 'published'}
-              onChange={(e) => updateField('status', e.target.value)}
-            >
-              {STATUS_OPTIONS.map((s) => (
-                <option key={s} value={s} disabled={s === 'published' && !canPublish}>
-                  {s.replace('_', ' ')}
-                </option>
-              ))}
-            </select>
+            <p className="mb-2">
+              <span className={`badge ${isPublished ? 'text-bg-success' : scheduledFor ? 'text-bg-info' : 'text-bg-secondary'}`}>
+                {scheduledFor ? 'Scheduled' : form.status.replace('_', ' ')}
+              </span>
+            </p>
+            {scheduledFor && (
+              <p className="small mb-2">Will publish automatically on {scheduledFor.toLocaleString()}.</p>
+            )}
+            {canPublish && !isNew && form.status !== 'archived' && (
+              <button type="button" className="btn btn-sm btn-outline-danger mb-2" disabled={saving} onClick={() => save({ status: 'archived' })}>
+                Archive
+              </button>
+            )}
             <p className="small text-muted-warm mb-0">
-              {canPublish ? 'You can publish directly.' : 'Contributors can save drafts; an editor must publish.'}
+              {canPublish ? 'Save as Draft, Publish Now, or Schedule for later.' : 'Contributors can save drafts; an editor must publish.'}
             </p>
           </div>
 

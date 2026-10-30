@@ -42,6 +42,7 @@ function createContentController({ Model, entityType, editableFields, labelField
   async function create(req, res) {
     const data = pickEditable(req.body);
     if (req.user.role === 'contributor') data.status = 'draft';
+    if (data.status === 'published' && 'publishedAt' in Model.schema.paths) data.publishedAt = new Date();
     if (onBeforeSave) await onBeforeSave(data, { isNew: true });
 
     const doc = await Model.create({
@@ -82,6 +83,9 @@ function createContentController({ Model, entityType, editableFields, labelField
     if (doc.revisions.length > MAX_REVISIONS) doc.revisions = doc.revisions.slice(0, MAX_REVISIONS);
 
     Object.assign(doc, data);
+    if (doc.isModified('status') && doc.status === 'published' && 'publishedAt' in doc.schema.paths) {
+      doc.publishedAt = new Date();
+    }
     doc.updatedBy = req.user._id;
     await doc.save();
 
