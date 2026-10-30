@@ -41,7 +41,7 @@ export default function BlogPostDetail() {
               {post.publishedAt && new Date(post.publishedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
             </div>
             {post.coverImage && <img src={post.coverImage} alt={post.title} className="rounded-4 w-100 mb-4" style={{ maxHeight: 420, objectFit: 'cover' }} />}
-            <div className="fs-6" dangerouslySetInnerHTML={{ __html: post.body }} />
+            <div className="fs-6 rich-content" dangerouslySetInnerHTML={{ __html: post.body }} />
             {post.images?.length > 0 && (
               <div className="row g-3 mt-3">
                 {post.images.map((src, i) => (

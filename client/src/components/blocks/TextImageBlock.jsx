@@ -8,7 +8,7 @@ export default function TextImageBlock({ config = {} }) {
   const textCol = (
     <div className="col-12 col-lg-6 d-flex flex-column justify-content-center">
       {heading && <h2 className="h3 fw-bold mb-3">{heading}</h2>}
-      {body && <div className="text-muted-warm" dangerouslySetInnerHTML={{ __html: body }} />}
+      {body && <div className="text-muted-warm rich-content" dangerouslySetInnerHTML={{ __html: body }} />}
     </div>
   );
 
