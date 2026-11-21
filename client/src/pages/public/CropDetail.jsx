@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api from '../../api/client';
 import { LoadingState, ErrorState } from '../../components/ui/LoadingState';
+import useNoIndex from '../../hooks/useNoIndex';
 import useDocumentMeta from '../../hooks/useDocumentMeta';
 
 export default function CropDetail() {
@@ -23,6 +24,8 @@ export default function CropDetail() {
     crop && (crop.seo?.metaTitle || `${crop.name} | Lobito Farms`),
     crop && (crop.seo?.metaDescription || crop.description)
   );
+
+  useNoIndex(error);
 
   if (error) return <ErrorState message="Crop not found." onRetry={load} />;
   if (!crop) return <LoadingState />;

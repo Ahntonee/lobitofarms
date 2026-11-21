@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import api from '../../api/client';
 import InquiryForm from '../../components/ui/InquiryForm';
 import { LoadingState, ErrorState } from '../../components/ui/LoadingState';
+import useNoIndex from '../../hooks/useNoIndex';
 import useDocumentMeta from '../../hooks/useDocumentMeta';
 
 export default function ProductDetail() {
@@ -24,6 +25,8 @@ export default function ProductDetail() {
     product && (product.seo?.metaTitle || `${product.name} | Lobito Farms`),
     product && (product.seo?.metaDescription || product.description)
   );
+
+  useNoIndex(error);
 
   if (error) return <ErrorState message="Product not found." onRetry={load} />;
   if (!product) return <LoadingState />;

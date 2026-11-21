@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import useNoIndex from '../../hooks/useNoIndex';
 
 export default function NotFound() {
+  useNoIndex(true);
   return (
     <section className="section text-center">
       <div className="container">

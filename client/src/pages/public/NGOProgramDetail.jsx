@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api from '../../api/client';
 import { LoadingState, ErrorState } from '../../components/ui/LoadingState';
+import useNoIndex from '../../hooks/useNoIndex';
 import useDocumentMeta from '../../hooks/useDocumentMeta';
 
 export default function NGOProgramDetail() {
@@ -23,6 +24,8 @@ export default function NGOProgramDetail() {
     program && (program.seo?.metaTitle || `${program.title} | Lobito Farms Foundation`),
     program && (program.seo?.metaDescription || program.description)
   );
+
+  useNoIndex(error);
 
   if (error) return <ErrorState message="Program not found." onRetry={load} />;
   if (!program) return <LoadingState />;

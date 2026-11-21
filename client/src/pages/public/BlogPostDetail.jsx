@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api from '../../api/client';
 import { LoadingState, ErrorState } from '../../components/ui/LoadingState';
+import useNoIndex from '../../hooks/useNoIndex';
 import useDocumentMeta from '../../hooks/useDocumentMeta';
 
 export default function BlogPostDetail() {
@@ -23,6 +24,8 @@ export default function BlogPostDetail() {
     post && (post.seo?.metaTitle || `${post.title} | Lobito Farms`),
     post && (post.seo?.metaDescription || post.excerpt)
   );
+
+  useNoIndex(error);
 
   if (error) return <ErrorState message="Post not found." onRetry={load} />;
   if (!post) return <LoadingState />;
